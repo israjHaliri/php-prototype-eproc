@@ -1,16 +1,14 @@
-warna:pln
-icon carousel bulet
-logo pln +eproc
 
-ilangin poliicy
+
+
+icon carousel bulet -> done
+pinggir foto tambah term conditon pakta integritas-> done
+ilangin poliicy ganti tombol download -> done
+
+logo pln +eproc
+warna:pln
+
 tambah tab :pengadaan ,pengumuman hasil lelang ,general
 
 id status
 tempat dftar auto complete drop down
-
-
-vendor policy fakta integritas
-
-
-pinggir foto tambah term conditon
-pakta integritas
