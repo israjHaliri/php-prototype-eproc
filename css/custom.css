@@ -352,8 +352,8 @@ ul{
 }
 .register{
 	background-color: rgba(0, 0, 0, 0.7);
-	box-shadow: 3px 3px 15px 10px rgba(0,0,0,0.75);
-	margin-top: 50px;
+	box-shadow: 3px 3px 5px 5px rgba(0,0,0,0.75);
+	margin-top: 0px;
 	padding: 20px 0px;
 }
 .register p,.register label{
