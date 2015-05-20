@@ -91,7 +91,7 @@ if(isset($_SESSION['admin'])){
 					</div>
 					<div class="col-md-5"><img src="../assets/image/cs.png"></div>
 					<div class="col-md-4">
-						<h2>Important !</h2>
+						<h2>Eproc</h2>
 						<p>
 							LPSE is organisation is organisationis organisationis organisationis organisation
 							is organisationis organisationis organisationis organisationis organisationis organisation.is organisationis organisationis organisationis organisationis organisationis organisation.organisation.is organisationis organisationis.

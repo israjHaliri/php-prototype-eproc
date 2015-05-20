@@ -297,7 +297,7 @@ ul{
 	font-size: 14px;
 	color: #777;
 }
-#myModal input{
+#myModal .input-group{
 	margin: 5px 0px;
 }
 #myModal .modal-body{

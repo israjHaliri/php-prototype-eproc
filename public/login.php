@@ -86,14 +86,6 @@ if(isset($_SESSION['admin'])){
 									<li><a href="register.html" class="btn btn-default">Supplier Registration</a></li>
 									<li><a href="contact-us.html" class="btn btn-default">Contact Us</a></li>
 									<li><a href="" data-toggle="modal" data-target="#myModal" class="btn btn-default">Login</a></li>
-									<!-- <li class="dropdown">
-										<a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Login&nbsp;<span class="caret"></span></a>
-										<ul class="dropdown-menu" role="menu">
-											<li><a href="" data-toggle="modal" data-target="#myModal">Option1</a></li>
-											<li class="divider"></li>
-											<li><a href="" >Option2</a></li>
-										</ul>
-									</li> -->
 								</ul>
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
@@ -118,11 +110,17 @@ if(isset($_SESSION['admin'])){
 									<img src="../assets/image/logopln.png" class="img-circle">
 								</div>
 								<div class="col-md-12">
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 										<input type="text" class="form-control" name="username" placeholder="username">
+									</div>
 								</div>
 								<br>
 								<div class="col-md-12">
+									<div class="input-group">
+										<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 										<input type="text" class="form-control" name="password" placeholder="password">
+									</div>
 								</div>
 							</div>
 							<div class="col-md-3"></div>
