@@ -111,108 +111,70 @@ else
   <section id="main-content">
     <section class="wrapper">
       <div class="col-md-12">
-      <div class="alert alert-success" role="alert">Welcome to dashboar Admin <strong><?php echo $_SESSION['admin']; ?></strong></div>
+        <div class="alert alert-success" role="alert">Welcome to dashboar Admin <strong><?php echo $_SESSION['admin']; ?></strong></div>
       </div>
-      <section class="news">
-    <div class="carousel-reviews broun-block">
-      <div class="container">
-        <div class="row">
-          <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
+      <div class='row'>
+        <div class="col-md-2"></div>
+        <div class='col-md-8'>
+          <div class="carousel slide media-carousel" id="media">
             <div class="carousel-inner">
-              <div class="item active">
-                <div class="col-md-4 col-sm-6">
-                  <div class="block-text rel zmin">
-                    <a title="" href="#">News</a>
-                    <div class="mark">
-                      <img src="../assets/image/image1.jpg">
-                    </div>
-                    <p>Never before has there been a good film portrayal of ancient Greece's favourite myth. So why would Hollywood start now? This latest attempt at bringing the son of Zeus to the big screen is brought to us by X-Men: The last Stand director Brett Ratner. If the name of the director wasn't enough to dissuade ...</p>
-                    <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+              <div class="item  active">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                  </div>          
+                  <div class="col-md-4">
+                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
                   </div>
-                  <div class="person-text rel">
-                    <a title="" href="#">Read More..</a>
-                    <i>Administrator</i>
-                  </div>
+                  <div class="col-md-4">
+                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                  </div>        
                 </div>
-                <div class="col-md-4 col-sm-6 hidden-xs">
-                  <div class="block-text rel zmin">
-                    <a title="" href="#">News</a>
-                    <div class="mark">
-                      <img src="../assets/image/image1.jpg">
-                    </div>
-                    <p>Never before has there been a good film portrayal of ancient Greece's favourite myth. So why would Hollywood start now? This latest attempt at bringing the son of Zeus to the big screen is brought to us by X-Men: The last Stand director Brett Ratner. If the name of the director wasn't enough to dissuade ...</p>
-                    <ins class="ab zmin sprite sprite-i-triangle block"></ins>
-                  </div>
-                  <div class="person-text rel">
-                    <a title="" href="#">Read More..</a>
-                    <i>Administrator</i>
-                  </div>
-                </div>
-                
               </div>
               <div class="item">
-                <div class="col-md-4 col-sm-6">
-                  <div class="block-text rel zmin">
-                    <a title="" href="#">News</a>
-                    <div class="mark">
-                      <img src="../assets/image/image1.jpg">
-                    </div>
-                    <p>Never before has there been a good film portrayal of ancient Greece's favourite myth. So why would Hollywood start now? This latest attempt at bringing the son of Zeus to the big screen is brought to us by X-Men: The last Stand director Brett Ratner. If the name of the director wasn't enough to dissuade ...</p>
-                    <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                <div class="row">
+                  <div class="col-md-4">
+                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                  </div>          
+                  <div class="col-md-4">
+                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
                   </div>
-                  <div class="person-text rel">
-                    <a title="" href="#">Read More..</a>
-                    <i>Administrator</i>
-                  </div>
+                  <div class="col-md-4">
+                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                  </div>        
                 </div>
-                <div class="col-md-4 col-sm-6 hidden-xs">
-                  <div class="block-text rel zmin">
-                    <a title="" href="#">News</a>
-                    <div class="mark">
-                      <img src="../assets/image/image1.jpg">
-                    </div>
-                    <p>Never before has there been a good film portrayal of ancient Greece's favourite myth. So why would Hollywood start now? This latest attempt at bringing the son of Zeus to the big screen is brought to us by X-Men: The last Stand director Brett Ratner. If the name of the director wasn't enough to dissuade ...</p>
-                    <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+              </div>
+              <div class="item">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                  </div>          
+                  <div class="col-md-4">
+                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
                   </div>
-                  <div class="person-text rel">
-                    <a title="" href="#">Read More..</a>
-                    <i>Administrator</i>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
-                  <div class="block-text rel zmin">
-                    <a title="" href="#">News</a>
-                    <div class="mark">
-                      <img src="../assets/image/image1.jpg">
-                    </div>
-                    <p>Never before has there been a good film portrayal of ancient Greece's favourite myth. So why would Hollywood start now? This latest attempt at bringing the son of Zeus to the big screen is brought to us by X-Men: The last Stand director Brett Ratner. If the name of the director wasn't enough to dissuade ...</p>
-                    <ins class="ab zmin sprite sprite-i-triangle block"></ins>
-                  </div>
-                  <div class="person-text rel">
-                    <a title="" href="#">Read More..</a>
-                    <i>Administrator</i>
-                  </div>
+                  <div class="col-md-4">
+                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                  </div>      
                 </div>
               </div>
             </div>
-            <a class="left carousel-control" href="#carousel-reviews" role="button" data-slide="prev">
+            <a class="left carousel-control" href="#media" role="button" data-slide="prev">
               <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#carousel-reviews" role="button" data-slide="next">
+              </a>
+            <a class="right carousel-control" href="#media" role="button" data-slide="next">
               <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
-          </div>
+          </div>                          
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="col-mf-d"></div>
+      </div>      
     </section>
   </section>
 </body>
 <script src="../assets/js/jquery-2.1.3.min.js"></script>
-  <script src="../assets/js/bootstrap.js"></script>
-  <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
-  <script src="../assets/js/jquery.scrollTo.min.js"></script>
-  <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-  <script src="../assets/js/common-scripts.js"></script>
+<script src="../assets/js/bootstrap.js"></script>
+<script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="../assets/js/jquery.scrollTo.min.js"></script>
+<script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+<script src="../assets/js/common-scripts.js"></script>
 </html>
