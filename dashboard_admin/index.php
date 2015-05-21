@@ -68,11 +68,11 @@ else
         <li class="sub-menu">
           <a href="javascript:;" >
             <i class="  glyphicon glyphicon-chevron-down fa fa-desktop"></i>
-            <span>Berita Terbaru</span>
+            <span>Berita</span>
           </a>
           <ul class="sub">
-            <li><a  href="new.html">New Item</a></li>
-            <li><a  href="list.html">List</a></li>
+            <li><a  href="../data_content_news/add.php">New Item</a></li>
+            <li><a  href="../data_content_news/index.php">List</a></li>
           </ul>
         </li>
         <li class="sub-menu">
