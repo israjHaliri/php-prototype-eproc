@@ -67,3 +67,8 @@ $('#myModal').on('shown.bs.modal', function () {
 })
 
 // end modal
+
+// dataTable
+$(document).ready(function() {
+    $('#example').dataTable();
+});

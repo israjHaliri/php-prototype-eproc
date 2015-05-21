@@ -22,7 +22,7 @@ if(isset($_POST['login'])){
 		if($row['level'] == "admin")
 		{
 			$_SESSION['admin']=$user;
-			echo '<script language="javascript">document.location="../admin/index.php";</script>';
+			echo '<script language="javascript">document.location="../dashboard_admin/index.php";</script>';
 		}
 	}
 }
@@ -31,7 +31,7 @@ if(isset($_POST['login'])){
 <?php
 include('../config/connection.php');
 if(isset($_SESSION['admin'])){
-	header("location: ../admin/index.php");
+	header("location: ../dashboard_admin/index.php");
 }
 ?>
 <!DOCTYPE html>
