@@ -4,7 +4,7 @@ session_start(); // Starting Session
 include('../config/connection.php');
 if(isset($_POST['login'])){
 	$user = mysqli_real_escape_string($conn,htmlentities($_POST['username']));
-	$pass = mysqli_real_escape_string($conn,htmlentities(($_POST['password'])));
+	$pass = mysqli_real_escape_string($conn,htmlentities(base64_encode($_POST['password'])));
 	
 // To protect MySQL injection for Security purpose
 	$user = stripslashes($user);
@@ -119,7 +119,7 @@ if(isset($_SESSION['admin'])){
 								<div class="col-md-12">
 									<div class="input-group">
 										<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-										<input type="text" class="form-control" name="password" placeholder="password">
+										<input type="password" class="form-control" name="password" placeholder="password">
 									</div>
 								</div>
 							</div>
