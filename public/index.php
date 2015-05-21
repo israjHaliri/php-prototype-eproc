@@ -51,7 +51,7 @@ if(isset($_SESSION['admin'])){
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav navbar-right">
 									<li><a href="index.html" class="btn btn-default">Home</a></li>
-									<li><a href="news.html" class="btn btn-default">News</a></li>
+									<li><a href="news.html" class="btn btn-default">All News</a></li>
 									<li><a href="faqs.html" class="btn btn-default">FAQ's</a></li>
 									<li><a href="register.html" class="btn btn-default">Supplier Registration</a></li>
 									<li><a href="contact-us.html" class="btn btn-default">Contact Us</a></li>
@@ -107,11 +107,9 @@ if(isset($_SESSION['admin'])){
 				<div role="tabpanel">
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">News</a></li>
+						<li role="presentation" class="active"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">Berita Terbau</a></li>
 						<li role="presentation"><a href="#pengadaan" aria-controls="pengadaan" role="tab" data-toggle="tab">Pengadaan</a></li>
-						<li role="presentation"><a href="#invitation" aria-controls="invitation" role="tab" data-toggle="tab">Invitation</a></li>
 						<li role="presentation"><a href="#lelang" aria-controls="lelang" role="tab" data-toggle="tab">Pengumuman hasil Lelang</a></li>
-						<li role="presentation"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">General</a></li>
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content">
@@ -276,78 +274,6 @@ if(isset($_SESSION['admin'])){
 								</div>
 							</div>
 						</div>
-						<div role="tabpanel" class="tab-pane invitation" id="invitation">
-							<div class="col-md-12 tab-post">
-								<div class="col-sm-12 ">
-									<ul>
-										<a href="">
-											<li>
-												<div class="col-md-12 news-item">
-													<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;Title News</div>
-													<div class="col-md-12 desc-news">
-														Description Description Description Description description Description
-														Description Description Description Description description Description
-													</div>
-													<div class="col-md-12 date-news">21-21-2021</div>
-													<div class="col-md-12 kind-news">Invitation</div>
-												</div>
-											</li>
-										</a>
-									</ul>
-								</div>
-								<div class="col-sm-12 ">
-									<ul>
-										<a href="">
-											<li>
-												<div class="col-md-12 news-item2">
-													<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;Title News</div>
-													<div class="col-md-12 desc-news">
-														Description Description Description Description description Description
-														Description Description Description Description description Description
-													</div>
-													<div class="col-md-12 date-news">21-21-2021</div>
-													<div class="col-md-12 kind-news">Invitation</div>
-												</div>
-											</li>
-										</a>
-									</ul>
-								</div>
-								<div class="col-sm-12 ">
-									<ul>
-										<a href="">
-											<li>
-												<div class="col-md-12 news-item">
-													<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;Title News</div>
-													<div class="col-md-12 desc-news">
-														Description Description Description Description description Description
-														Description Description Description Description description Description
-													</div>
-													<div class="col-md-12 date-news">21-21-2021</div>
-													<div class="col-md-12 kind-news">Invitation</div>
-												</div>
-											</li>
-										</a>
-									</ul>
-								</div>
-								<div class="col-sm-12 ">
-									<ul>
-										<a href="">
-											<li>
-												<div class="col-md-12 news-item2">
-													<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;Title News</div>
-													<div class="col-md-12 desc-news">
-														Description Description Description Description description Description
-														Description Description Description Description description Description
-													</div>
-													<div class="col-md-12 date-news">21-21-2021</div>
-													<div class="col-md-12 kind-news">Invitation</div>
-												</div>
-											</li>
-										</a>
-									</ul>
-								</div>
-							</div>
-						</div>
 						<div role="tabpanel" class="tab-pane invitation" id="lelang">
 							<div class="col-md-12 tab-post">
 								<div class="col-sm-12 ">
@@ -413,78 +339,6 @@ if(isset($_SESSION['admin'])){
 													</div>
 													<div class="col-md-12 date-news">21-21-2021</div>
 													<div class="col-md-12 kind-news">lelang</div>
-												</div>
-											</li>
-										</a>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div role="tabpanel" class="tab-pane invitation" id="general">
-							<div class="col-md-12 tab-post">
-								<div class="col-sm-12 ">
-									<ul>
-										<a href="">
-											<li>
-												<div class="col-md-12 news-item">
-													<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;Title News</div>
-													<div class="col-md-12 desc-news">
-														Description Description Description Description description Description
-														Description Description Description Description description Description
-													</div>
-													<div class="col-md-12 date-news">21-21-2021</div>
-													<div class="col-md-12 kind-news">general</div>
-												</div>
-											</li>
-										</a>
-									</ul>
-								</div>
-								<div class="col-sm-12 ">
-									<ul>
-										<a href="">
-											<li>
-												<div class="col-md-12 news-item2">
-													<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;Title News</div>
-													<div class="col-md-12 desc-news">
-														Description Description Description Description description Description
-														Description Description Description Description description Description
-													</div>
-													<div class="col-md-12 date-news">21-21-2021</div>
-													<div class="col-md-12 kind-news">general</div>
-												</div>
-											</li>
-										</a>
-									</ul>
-								</div>
-								<div class="col-sm-12 ">
-									<ul>
-										<a href="">
-											<li>
-												<div class="col-md-12 news-item">
-													<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;Title News</div>
-													<div class="col-md-12 desc-news">
-														Description Description Description Description description Description
-														Description Description Description Description description Description
-													</div>
-													<div class="col-md-12 date-news">21-21-2021</div>
-													<div class="col-md-12 kind-news">general</div>
-												</div>
-											</li>
-										</a>
-									</ul>
-								</div>
-								<div class="col-sm-12 ">
-									<ul>
-										<a href="">
-											<li>
-												<div class="col-md-12 news-item2">
-													<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;Title News</div>
-													<div class="col-md-12 desc-news">
-														Description Description Description Description description Description
-														Description Description Description Description description Description
-													</div>
-													<div class="col-md-12 date-news">21-21-2021</div>
-													<div class="col-md-12 kind-news">general</div>
 												</div>
 											</li>
 										</a>

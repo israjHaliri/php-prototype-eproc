@@ -60,7 +60,7 @@ else
         <div class="glyphicon glyphicon-align-justify fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation">
         </div>
       </div>
-      <a href="index.html" class="logo">
+      <a class="logo">
         <b>DASH<span>BOARD</span></b>
       </a>
       <div class="top-menu">
@@ -76,9 +76,9 @@ else
     <div id="sidebar"  class="nav-collapse ">
       <ul class="sidebar-menu" id="nav-accordion">
         <p class="centered"><img class="img-thumbnail" width="100" src="../assets/image/<?php echo $data ['image']; ?>"/></p>
-        <h5 class="centered"><?php echo $_SESSION['admin']; ?></h5>
+        <h5 class="centered"><?php echo $_SESSION['admin'] ?></h5>
         <li class="mt">
-          <a class="active" href="../admin/index.php">
+          <a class="active" href="../dashboard_admin/index.php">
             <i class=" glyphicon glyphicon-home fa fa-dashboard"></i>
             <span>Dashboard</span>
           </a>
@@ -92,44 +92,66 @@ else
         <li class="sub-menu">
           <a href="javascript:;" >
             <i class="  glyphicon glyphicon-chevron-down fa fa-desktop"></i>
-            <span>Berita Terbaru</span>
+            <span>Berita</span>
           </a>
           <ul class="sub">
-            <li><a  href="new.html">New Item</a></li>
-            <li><a  href="list.html">List</a></li>
+            <li><a  href="../data_content_berita/add.php">New Data</a></li>
+            <li><a  href="../data_content_berita/index.php">List Data</a></li>
           </ul>
         </li>
         <li class="sub-menu">
           <a href="javascript:;" >
-            <i class="fa fa-cogs  glyphicon glyphicon-chevron-down"></i>
-            <span>Hasil Lelang</span>
+            <i class="  glyphicon glyphicon-tags fa fa-desktop"></i>
+            <span>FAQ's</span>
           </a>
-          <ul class="sub">
-            <li><a  href="new.html">New Item</a></li>
-            <li><a  href="list.html">List</a></li>
-          </ul>
         </li>
         <li class="sub-menu ">
           <a href="javascript:;" >
             <i class="  glyphicon glyphicon-chevron-down fa fa-book"></i>
+            <span>Lelang</span>
+          </a>
+          <ul class="sub">
+            <li><a  href="../data_content_lelang/add.php">New Data</a></li>
+            <li><a  href="../data_content_lelang/index.php">List Data</a></li>
+          </ul>
+        </li>
+        <li class="sub-menu">
+          <a href="javascript:;" >
+            <i class=" glyphicon glyphicon-chevron-down fa fa-tasks"></i>
             <span>Pengadaan</span>
           </a>
           <ul class="sub">
-            <li><a  href="new.html">New Item</a></li>
-            <li><a  href="list.html">List</a></li>
+            <li><a  href="../data_content_pengadaan/add.php">New Data</a></li>
+            <li><a  href="../data_content_pengadaan/index.php">List Data</a></li>
           </ul>
         </li>
-       <li class="sub-menu">
+        <li class="sub-menu">
+          <a href="javascript:;" >
+            <i class="  glyphicon glyphicon-tags fa fa-desktop"></i>
+            <span>Contact-Us</span>
+          </a>
+        </li>
+        <li class="sub-menu">
+          <a href="javascript:;" >
+            <i class=" glyphicon glyphicon-chevron-down fa fa-tasks"></i>
+            <span>Supplier</span>
+          </a>
+          <ul class="sub">
+            <li><a  href="../data_supplier/add.php">New Data</a></li>
+            <li><a  href="../data_supplier/index.php">List Data</a></li>
+          </ul>
+        </li>
+        <li class="sub-menu">
           <a href="javascript:;" >
             <i class=" glyphicon glyphicon-chevron-down fa fa-tasks"></i>
             <span>User</span>
           </a>
           <ul class="sub">
-            <li><a  href="../data_user/add.php">New User</a></li>
-            <li><a  href="../data_user/index.php">List User</a></li>
+            <li><a  href="../data_user/add.php">New Data</a></li>
+            <li><a  href="../data_user/index.php">List Data</a></li>
           </ul>
         </li>
-      </ul>
+        </ul style="padding-bottom=20">
     </div>
   </aside>
   <section id="main-content">

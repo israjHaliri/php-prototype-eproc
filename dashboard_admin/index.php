@@ -12,7 +12,7 @@ include('../config/connection.php');
 $show = mysqli_query($conn,"SELECT image FROM user WHERE username='$username'");
 if(mysqli_num_rows($show) == 0)
 {
-    // echo '<script>window.history.back()</script>';
+// echo '<script>window.history.back()</script>';
 }
 else
 {
@@ -36,7 +36,7 @@ else
         <div class="glyphicon glyphicon-align-justify fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation">
         </div>
       </div>
-      <a href="index.html" class="logo">
+      <a class="logo">
         <b>DASH<span>BOARD</span></b>
       </a>
       <div class="top-menu">
@@ -54,13 +54,13 @@ else
         <p class="centered"><img class="img-thumbnail" width="100" src="../assets/image/<?php echo $data ['image']; ?>"/></p>
         <h5 class="centered"><?php echo $_SESSION['admin'] ?></h5>
         <li class="mt">
-          <a class="active" href="../admin/index.php">
+          <a class="active" href="../dashboard_admin/index.php">
             <i class=" glyphicon glyphicon-home fa fa-dashboard"></i>
             <span>Dashboard</span>
           </a>
         </li>
         <li class="sub-menu">
-          <a href="javascript:;" >
+          <a href="../data_content_eproc/index.php">
             <i class="  glyphicon glyphicon-tags fa fa-desktop"></i>
             <span>Eproc</span>
           </a>
@@ -71,28 +71,50 @@ else
             <span>Berita</span>
           </a>
           <ul class="sub">
-            <li><a  href="../data_content_news/add.php">New Item</a></li>
-            <li><a  href="../data_content_news/index.php">List</a></li>
+            <li><a  href="../data_content_berita/add.php">New Data</a></li>
+            <li><a  href="../data_content_berita/index.php">List Data</a></li>
           </ul>
         </li>
         <li class="sub-menu">
-          <a href="javascript:;" >
-            <i class="fa fa-cogs  glyphicon glyphicon-chevron-down"></i>
-            <span>Hasil Lelang</span>
+          <a href="../data_content_faqs/index.php">
+            <i class="  glyphicon glyphicon-tags fa fa-desktop"></i>
+            <span>FAQ's</span>
           </a>
-          <ul class="sub">
-            <li><a  href="new.html">New Item</a></li>
-            <li><a  href="list.html">List</a></li>
-          </ul>
         </li>
         <li class="sub-menu ">
           <a href="javascript:;" >
             <i class="  glyphicon glyphicon-chevron-down fa fa-book"></i>
+            <span>Lelang</span>
+          </a>
+          <ul class="sub">
+            <li><a  href="../data_content_lelang/add.php">New Data</a></li>
+            <li><a  href="../data_content_lelang/index.php">List Data</a></li>
+          </ul>
+        </li>
+        <li class="sub-menu">
+          <a href="javascript:;" >
+            <i class=" glyphicon glyphicon-chevron-down fa fa-tasks"></i>
             <span>Pengadaan</span>
           </a>
           <ul class="sub">
-            <li><a  href="new.html">New Item</a></li>
-            <li><a  href="list.html">List</a></li>
+            <li><a  href="../data_content_pengadaan/add.php">New Data</a></li>
+            <li><a  href="../data_content_pengadaan/index.php">List Data</a></li>
+          </ul>
+        </li>
+        <li class="sub-menu">
+          <a href="../data_content_contact_us/index.php">
+            <i class="  glyphicon glyphicon-tags fa fa-desktop"></i>
+            <span>Contact-Us</span>
+          </a>
+        </li>
+        <li class="sub-menu">
+          <a href="javascript:;" >
+            <i class=" glyphicon glyphicon-chevron-down fa fa-tasks"></i>
+            <span>Supplier</span>
+          </a>
+          <ul class="sub">
+            <li><a  href="../data_supplier/add.php">New Data</a></li>
+            <li><a  href="../data_supplier/index.php">List Data</a></li>
           </ul>
         </li>
         <li class="sub-menu">
@@ -101,11 +123,11 @@ else
             <span>User</span>
           </a>
           <ul class="sub">
-            <li><a  href="../data_user/add.php">New User</a></li>
-            <li><a  href="../data_user/index.php">List User</a></li>
+            <li><a  href="../data_user/add.php">New Data</a></li>
+            <li><a  href="../data_user/index.php">List Data</a></li>
           </ul>
         </li>
-      </ul>
+        </ul style="padding-bottom=20">
     </div>
   </aside>
   <section id="main-content">
@@ -160,7 +182,7 @@ else
             </div>
             <a class="left carousel-control" href="#media" role="button" data-slide="prev">
               <span class="glyphicon glyphicon-chevron-left"></span>
-              </a>
+            </a>
             <a class="right carousel-control" href="#media" role="button" data-slide="next">
               <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
