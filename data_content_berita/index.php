@@ -22,7 +22,7 @@ else
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Data table israj</title>
+  <title></title>
   <link rel="stylesheet" href="../assets/css/dataTables.bootstrap.css">
   <link href="../assets/css/bootstrap.css" rel="stylesheet">
   <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -114,20 +114,26 @@ else
         <thead>
           <tr>
             <td>NO</td>
-            <th>Name</th>
-            <th class="datatable-nosort"></th>
+            <th>Title</th>
+            <th>Date</th>
+            <th class="datatable-nosort">Action</th>
           </tr>
         </thead>
+        <div  align="right">
+          <a class="btn btn-success btn-xs btn-add" href="add.php">Tambah Data</a>
+        </div>
         <tbody>
           <?php 
           $no = 1;
-          $query = mysqli_query($conn,"SELECT * FROM user ORDER BY user_id DESC") or die (mysql_error('Tabel tidak ditemukan'));
+          $query = mysqli_query($conn,"SELECT * FROM berita ORDER BY id_berita DESC") or die (mysql_error('Tabel tidak ditemukan'));
           while ($data = mysqli_fetch_array($query)){
             ?>
+            
             <tr>
               <td><?php echo $no; ?></td>
-              <td><?php echo $data['username']; ?></td>
-              <td><?php echo $data['username']; ?></td>
+              <td><?php echo $data['title']; ?></td>
+              <td><?php echo $data['date']; ?></td>
+              <td align="center"><?php echo '<a href="detail.php?id='.base64_encode($data['id_berita']).'" class="btn btn-info">Details</a>&nbsp;<a href="edit.php?id='.base64_encode($data['id_berita']).'" class="btn btn-success">Edit</a>&nbsp;<a href="delete.php?id='.base64_encode($data['id_berita']).'" class="btn btn-success">Hapus</a>';?></td>
             </tr>
             <?php        
             $no++;

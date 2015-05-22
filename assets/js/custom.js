@@ -61,14 +61,3 @@ $('#myTab a').click(function (e) {
 })
 // end tab
 
-// modal
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').focus()
-})
-
-// end modal
-
-// dataTable
-$(document).ready(function() {
-    $('#example').dataTable();
-});
