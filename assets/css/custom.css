@@ -163,10 +163,12 @@ ul{
 	text-align: left;
 	border-top-right-radius: 50px;
 	margin-top: 10px;
-	font-size: 17px;
+	font-size: 16px;
 	background: #00936E; 
 	color: white;
 	border-color: #00936E; 
+	padding-top: 12px;
+	padding-bottom: 12px;
 
 }
 /*end content*/
@@ -216,7 +218,7 @@ ul{
 	border-radius: 4px;
 	margin-bottom: 20px;
 	padding-top: 20px;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 }
 .content2 .tab-pane i{
 	font-size: 12px;
@@ -246,7 +248,8 @@ ul{
 	border: 1px solid #f1f1f1;
 	border-radius: 5px;
 	background-color: #f0f0f0;
-	margin-bottom: 9px;
+	margin-bottom: 10px;
+	padding: 0px 0px;
 }
 
 .content2 .news-item2{
@@ -265,6 +268,10 @@ ul{
 }
 .content2 .invitation .news-item{
 	margin-top: 10px;margin-bottom: -10px;
+}
+.content2 .news-slide .item img{
+height: 300px !important;
+width: 100%;
 }
 /*end content2*/
 
@@ -473,3 +480,8 @@ ul{
 	width: 100%;
 }
 /*end gmap*/
+
+
+#main-detail{
+	margin: 50px 0px !important;
+}

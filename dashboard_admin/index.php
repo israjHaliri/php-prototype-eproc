@@ -42,7 +42,7 @@ else
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
           <li>
-            <a class="logout" href="logout.php">Logout</a>
+            <a class="logout" href="../dashboard_admin/logout.php">Logout</a>
           </li>
         </ul>
       </div>
@@ -66,7 +66,7 @@ else
           </a>
         </li>
         <li class="sub-menu">
-          <a href="javascript:;" >
+          <a href="" >
             <i class="  glyphicon glyphicon-chevron-down fa fa-desktop"></i>
             <span>Berita</span>
           </a>
@@ -127,7 +127,7 @@ else
             <li><a  href="../data_user/index.php">List Data</a></li>
           </ul>
         </li>
-        </ul style="padding-bottom=20">
+      </ul style="padding-bottom=20">
     </div>
   </aside>
   <section id="main-content">
@@ -143,40 +143,37 @@ else
               <div class="item  active">
                 <div class="row">
                   <div class="col-md-4">
-                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                    <a class="thumbnail" href="../data_content_berita/index.php"><img alt="" src="../assets/image/LOGOPLN.PNG"><div align="center"><strong>BERITA</strong></div></a>
                   </div>          
                   <div class="col-md-4">
-                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                    <a class="thumbnail" href="../data_content_contact_us/index.php"><img alt="" src="../assets/image/LOGOPLN.PNG"><div align="center"><strong>CONTACT-US</strong></div></a>
                   </div>
                   <div class="col-md-4">
-                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                    <a class="thumbnail" href="../data_content_eproc/index.php"><img alt="" src="../assets/image/LOGOPLN.PNG"><div align="center"><strong>EPROC</strong></div></a>
                   </div>        
                 </div>
               </div>
               <div class="item">
                 <div class="row">
                   <div class="col-md-4">
-                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                    <a class="thumbnail" href="../data_content_faqs/index.php"><img alt="" src="../assets/image/LOGOPLN.PNG"><div align="center"><strong>FAQS</strong></div></a>
                   </div>          
                   <div class="col-md-4">
-                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                    <a class="thumbnail" href="../data_content_lelang/index.php"><img alt="" src="../assets/image/LOGOPLN.PNG"><div align="center"><strong>LELANG</strong></div></a>
                   </div>
                   <div class="col-md-4">
-                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                    <a class="thumbnail" href="../data_content_pengadaan/index.php"><img alt="" src="../assets/image/LOGOPLN.PNG"><div align="center"><strong>PENGADAAN</strong></div></a>
                   </div>        
                 </div>
               </div>
               <div class="item">
                 <div class="row">
                   <div class="col-md-4">
-                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                    <a class="thumbnail" href="../data_supplier/index.php"><img alt="" src="../assets/image/LOGOPLN.PNG"><div align="center"><strong>SUPPLIER</strong></div></a>
                   </div>          
                   <div class="col-md-4">
-                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                  </div>
-                  <div class="col-md-4">
-                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                  </div>      
+                    <a class="thumbnail" href="../data_user/index.php"><img alt="" src="../assets/image/LOGOPLN.PNG"><div align="center"><strong>USER</strong></div></a>
+                  </div>     
                 </div>
               </div>
             </div>

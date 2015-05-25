@@ -1,8 +1,38 @@
+
+<?php
+if(!empty($_POST["add"]))
+{
+	include('../config/connection.php');
+	$nama		= $_POST['nama'];
+	$alamat		=$_POST['alamat'];
+	$password   =base64_encode($_POST['password']);
+	$nama_perusahaan_penyedia   = $_POST['nama_perusahaan_penyedia'];
+	$no_pkp   = $_POST['no_pkp'];
+	$bentuk_usaha   = $_POST['bentuk_usaha'];
+	$npwp   = $_POST['npwp'];
+	$status		= $_POST['status'];
+
+	$input = mysqli_query($conn,"INSERT INTO supplier VALUES (NULL, '$nama', '$alamat','$password','$nama_perusahaan_penyedia','$no_pkp','$bentuk_usaha','$npwp','$status')") or die(mysqli_error());
+	if(!$input)
+	{
+		?>
+		<script type="text/javascript">
+			alert("Gagal Simpan Data,Mohon Verifikasi Kembali Data");
+		</script>
+		<?php 
+	} 
+	else 
+	{
+		header("Location:register.php");
+	}
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../assets/css/custom.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/custom2.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
@@ -16,9 +46,7 @@
 				</div>
 				<div class="col-md-10 language" align="right">
 					<div>
-						<i class=" glyphicon glyphicon-globe"></i>
-						<a href="" class="bahasa">( Bahasa</a>
-						<a href="" class="english">English)</i></a>
+						<i class=" glyphicon glyphicon-user"></i>(123) 456-7890
 					</div>
 					<div>
 						<div class="input-group search col-md-3">
@@ -44,19 +72,20 @@
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="index.html" class="btn btn-default">Home</a></li>
-									<li><a href="news.html" class="btn btn-default">News</a></li>
-									<li><a href="faqs.html" class="btn btn-default">FAQ's</a></li>
-									<li><a href="register.html" class="btn btn-default">Supplier Registration</a></li>
-									<li><a href="contact-us.html" class="btn btn-default">Contact Us</a></li>
-									<li class="dropdown">
+									<li><a href="index.php" class="btn btn-default">Home</a></li>
+									<li><a href="news.php" class="btn btn-default">All News</a></li>
+									<li><a href="faqs.php" class="btn btn-default">FAQ's</a></li>
+									<li><a href="register.php" class="btn btn-default">Supplier Registration</a></li>
+									<li><a href="contact-us.php" class="btn btn-default">Contact Us</a></li>
+									<li><a href="login.php" class="btn btn-default">Login</a></li>
+									<!-- <li class="dropdown">
 										<a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Login&nbsp;<span class="caret"></span></a>
 										<ul class="dropdown-menu" role="menu">
 											<li><a href="" data-toggle="modal" data-target="#myModal">Option1</a></li>
 											<li class="divider"></li>
-											<li><a href="" data-toggle="modal" data-target="#myModal">Option2</a></li>
+											<li><a href="" >Option2</a></li>
 										</ul>
-									</li>
+									</li> -->
 								</ul>
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
@@ -64,70 +93,58 @@
 				</div>
 			</div>
 		</div>
-	</section>	<section class="segitiga-atas"></section>
-	<section class="sendme">
+	</section>
+	<section class="segitiga-atas"></section>
+	<section class="register">
 		<div class="container">
-			<div class="row">
+			<form action="register.php" method="post"  enctype="multipart/form-data">
+				<div class="col-md-2"></div>
 				<div class="col-md-8">
-					<div class="well well-sm">
-						<form>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="name">Name</label>
-										<input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-									</div>
-									<div class="form-group">
-										<label for="email">Email Address</label>
-										<div class="input-group">
-											<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-											<input type="email" class="form-control" id="email" placeholder="Enter email" required="required" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="subject">Subject</label>
-										<select id="subject" name="subject" class="form-control" required="required">
-											<option value="na" selected="">Choose One:</option>
-											<option value="service">General Customer Service</option>
-											<option value="suggestions">Suggestions</option>
-											<option value="product">Product Support</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="name">Message</label>
-										<textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-										placeholder="Message"></textarea>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<button type="submit" class="btn btn-default pull-right" id="btnContactUs">Send Message</button>
-								</div>
-							</div>
-						</form>
-					</div>
+					<table>
+						<div class="form-group">
+							<label>Nama</label> 	
+							<input type="text" name="nama" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>ALamat</label> 	
+							<textarea name="alamat" rows="10" cols="80" class="form-control"></textarea>
+						</div>
+						<div class="form-group">
+							<label>Password</label>   
+							<input type="password" name="password" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Nama Perusahaan Penyedia</label>   
+							<input type="text" name="nama_perusahaan_penyedia" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>No PKP</label>   
+							<input type="text" name="no_pkp" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Bentuk Usaha</label>   
+							<input type="text" name="bentuk_usaha" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>NPWP</label>   
+							<input type="text" name="npwp" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Status&nbsp;:&nbsp;</label><br>
+							<select name="status" required class="btn btn-default">
+								<option value="aktif">aktif</option>
+								<option value="non-aktif">non-aktif</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<input type="submit" name="add" value="Simpan" class="btn btn-success">
+						</div>
+					</table>
 				</div>
-				<div class="col-md-4">
-					<form>
-						<legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
-						<address>
-							<strong>Twitter, Inc.</strong><br>
-							795 Folsom Ave, Suite 600<br>
-							San Francisco, CA 94107<br>
-							<abbr title="Phone">P:</abbr>(123) 456-7890
-						</address>
-						<address>
-							<strong>Full Name</strong><br>
-							<a href="mailto:#">first.last@example.com</a>
-						</address>
-					</form>
-				</div>
-			</div>
+				<div class="col-md-2"></div>
+			</form>
 		</div>
 	</section>
-	<section id="map1" class="gmap3">
-  </section>
 	<section class="footer">
 		<div class="col-md-12 copyright" align="center">
 			<span><i class="glyphicon glyphicon-copyright-mark"></i>&nbsp;Copyright 2015</span>

@@ -1,9 +1,32 @@
+<?php
+if(!empty($_POST["kirim"]))
+{
+	include('../config/connection.php');
+	$nama		= $_POST['nama'];
+	$email		=$_POST['email'];
+	$subject   = $_POST['subject'];
+	$message   = $_POST['message'];
+
+	$input = mysqli_query($conn,"INSERT INTO contact_us(nama,email,subject,pesan) VALUES('$nama', '$email', '$subject', '$message')") or die(mysqli_error());
+	if(!$input)
+	{
+		?>
+		<script type="text/javascript">
+			alert("Gagal Simpan Data,Mohon Verifikasi Kembali Data");
+		</script>
+		<?php 
+	} 
+	else 
+	{
+		header("Location:contact-us.php");
+	}
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../assets/css/custom.css">
-	<link rel="stylesheet" type="text/css" href="../assets/css/custom2.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/animate.css">
@@ -17,9 +40,7 @@
 				</div>
 				<div class="col-md-10 language" align="right">
 					<div>
-						<i class=" glyphicon glyphicon-globe"></i>
-						<a href="" class="bahasa">( Bahasa</a>
-						<a href="" class="english">English)</i></a>
+						<i class=" glyphicon glyphicon-user"></i>(123) 456-7890
 					</div>
 					<div>
 						<div class="input-group search col-md-3">
@@ -45,19 +66,20 @@
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="index.html" class="btn btn-default">Home</a></li>
-									<li><a href="news.html" class="btn btn-default">News</a></li>
-									<li><a href="faqs.html" class="btn btn-default">FAQ's</a></li>
-									<li><a href="register.html" class="btn btn-default">Supplier Registration</a></li>
-									<li><a href="contact-us.html" class="btn btn-default">Contact Us</a></li>
-									<li class="dropdown">
+									<li><a href="index.php" class="btn btn-default">Home</a></li>
+									<li><a href="news.php" class="btn btn-default">All News</a></li>
+									<li><a href="faqs.php" class="btn btn-default">FAQ's</a></li>
+									<li><a href="register.php" class="btn btn-default">Supplier Registration</a></li>
+									<li><a href="contact-us.php" class="btn btn-default">Contact Us</a></li>
+									<li><a href="login.php" class="btn btn-default">Login</a></li>
+									<!-- <li class="dropdown">
 										<a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Login&nbsp;<span class="caret"></span></a>
 										<ul class="dropdown-menu" role="menu">
 											<li><a href="" data-toggle="modal" data-target="#myModal">Option1</a></li>
 											<li class="divider"></li>
-											<li><a href="" data-toggle="modal" data-target="#myModal">Option2</a></li>
+											<li><a href="" >Option2</a></li>
 										</ul>
-									</li>
+									</li> -->
 								</ul>
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
@@ -67,82 +89,67 @@
 		</div>
 	</section>
 	<section class="segitiga-atas"></section>
-	<section class="register">
+	<section class="sendme">
 		<div class="container">
-			<div class="col-md-12">
-				<div class="col-md-6">
-					<div class="form-group">
-						<label for="exampleInputEmail1">ID Rergistrasi</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Disable">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Nama Pengguna</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Pengguna">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Nama Login</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Login">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Password</label>
-						<input type="password" class="form-control" id="exampleInputEmail1" placeholder="Password">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Nama Pengguna</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Pengguna">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Alamat</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Alamat">
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group">
-						<label for="exampleInputEmail1">Nama Perusahaan/Penyedia</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama Perusahaan/Penyedia">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Nomor Pengukuhan PKP</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nomor Pengukuhan PKP">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Bentuk Usaha</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Bentuk Usaha">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">NPWP</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="NPWP">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Tempat Daftar</label>
-						<div class="çol-md-12">
-							<select name="umur" >
-								<option value="">pertama</option>
-								<option value="">Kedua</option>
-								<option value="">ketiga</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Status</label>
-						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Status">
-					</div>
-				</div>
-				<div class="col-md-12 submit">
-					<div class="col-md-4">
-						<form>
-							<div class="checkbox">
-								<label>
-									<input type="checkbox"> Check me out<br>By clicking send, you agree to our terms and that you have read and understand our data use policy, including our cookie use.
-								</label>
+			<div class="row">
+				<div class="col-md-8">
+					<div class="well well-sm">
+						<form action="" method="post"  enctype="multipart/form-data">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="name">Name</label>
+										<input type="text" class="form-control" id="name"d name="nama" placeholder="Enter name" required="required" />
+									</div>
+									<div class="form-group">
+										<label for="email">Email Address</label>
+										<div class="input-group">
+											<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+											<input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required="required" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="subject">Subject</label>
+										<select id="subject" name="subject" class="form-control" required="required">
+											<option value="bisnis" selected="">bisnis</option>
+											<option value="komplen">complain</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="name">Message</label>
+										<textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+										placeholder="Message"></textarea>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<input type="submit" name="kirim" value="Simpan" class="btn btn-default pull-right">
+								</div>
 							</div>
-							<button type="submit" class="btn btn-success">Submit</button>
 						</form>
-						<div class="col-md-8"></div>
 					</div>
+				</div>
+				<div class="col-md-4">
+					<form>
+						<legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+						<address>
+							<strong></strong><br>
+							Jl.trunojoyo blok M 1/35<br>
+							kebayoran baru jakarta<br>
+							12160<br>
+							<abbr title="Phone">Phone :</abbr>(123) 456-7890
+						</address>
+						<address>
+							<strong>Our Email</strong><br>
+							<a href="mailto:#">eproc@pln.co.id</a>
+						</address>
+					</form>
 				</div>
 			</div>
 		</div>
+	</section>
+	<section id="map1" class="gmap3">
 	</section>
 	<section class="footer">
 		<div class="col-md-12 copyright" align="center">

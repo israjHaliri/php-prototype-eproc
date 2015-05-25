@@ -18,10 +18,12 @@ if(isset($_REQUEST['id']))
 	}
 	else
 	{
+		$query = mysqli_query($conn,"SELECT * FROM berita WHERE id_berita='$id'") or die (mysql_error('tabel tidak ditemukan'));
+		$data  = mysqli_fetch_array($query);
 		$del = mysqli_query($conn,"DELETE FROM user WHERE user_id='$id'");
-
 		if($del)
 		{
+			unlink("../assets/image/".$data['image']);
 			header("Location:index.php");
 		}
 		else
