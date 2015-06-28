@@ -77,7 +77,6 @@ include('../config/connection.php');
 								<th>NO</th>
 								<th>ID USER</th>
 								<th>ID PENGADAAN</th>
-								<th class="datatable-nosort">Action</th>
 							</tr>
 						</thead>				
 						<tbody>
@@ -92,7 +91,6 @@ include('../config/connection.php');
 									<td><?php echo $no; ?></td>
 									<td><?php echo $data['id_user']; ?></td>
 									<td><?php echo $data['id_pengadaan']; ?></td>
-									<td align="center"><?php echo '<a href="delete.php?id='.base64_encode($data['id_pemenang']).'" class="btn btn-success">Hapus</a>';?></td>
 								</tr>
 								<?php        
 								$no++;
