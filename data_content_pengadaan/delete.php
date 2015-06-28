@@ -18,13 +18,13 @@ if(isset($_REQUEST['id']))
 	}
 	else
 	{
-		$query = mysqli_query($conn,"SELECT * FROM berita WHERE id_berita='$id'") or die (mysql_error('tabel tidak ditemukan'));
-		$data  = mysqli_fetch_array($query);
+		$query = mysqli_query($conn,"SELECT * FROM pengadaan WHERE id_pengadaan='$id'") or die (mysql_error('tabel tidak ditemukan'));
+		$data2  = mysqli_fetch_array($query);
 		$del = mysqli_query($conn,"DELETE FROM pengadaan WHERE id_pengadaan='$id'");
 
 		if($del)
 		{
-			unlink("../assets/image/".$data2['image']);
+			unlink("../assets/image/".$data2['image_pengadaan']);
 			header("Location:index.php");
 		}
 		else

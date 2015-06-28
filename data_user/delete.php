@@ -11,7 +11,7 @@ if(isset($_REQUEST['id']))
 {
 	include('../config/connection.php');
 	$id = base64_decode($_REQUEST['id']);
-	$cek = mysqli_query($conn,"SELECT user_id FROM user WHERE user_id='$id'") or die(mysqli_error());
+	$cek = mysqli_query($conn,"SELECT id_user FROM user WHERE id_user='$id'") or die(mysqli_error($conn));
 	if(mysqli_num_rows($cek) == 0)
 	{
 		echo '<script>window.history.back()</script>';
@@ -20,7 +20,7 @@ if(isset($_REQUEST['id']))
 	{
 		$query = mysqli_query($conn,"SELECT * FROM berita WHERE id_berita='$id'") or die (mysql_error('tabel tidak ditemukan'));
 		$data  = mysqli_fetch_array($query);
-		$del = mysqli_query($conn,"DELETE FROM user WHERE user_id='$id'");
+		$del = mysqli_query($conn,"DELETE FROM user WHERE id_user='$id'");
 		if($del)
 		{
 			unlink("../assets/image/".$data['image']);

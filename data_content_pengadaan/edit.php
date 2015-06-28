@@ -33,17 +33,17 @@ if(isset($_REQUEST['save']))
   $direktori = "../assets/image/";
   $saveImage=move_uploaded_file($file, $direktori.$image_name);
 
-  $query = mysqli_query($conn,"SELECT * FROM berita WHERE id_berita='$id'") or die (mysql_error('tabel tidak ditemukan'));
-  $data  = mysqli_fetch_array($query);
+  $query = mysqli_query($conn,"SELECT * FROM pengadaan WHERE id_pengadaan='$id'") or die (mysql_error('tabel tidak ditemukan'));
+  $data2  = mysqli_fetch_array($query);
 
   if($image_name=="")
   {
-    $update = mysqli_query($conn,"UPDATE pengadaan SET title='$title',description='$description', date_publish='$date', time_publish='$time'  WHERE id_pengadaan='$id'") or die(mysqli_error());
+    $update = mysqli_query($conn,"UPDATE pengadaan SET title_pengadaan='$title',description_pengadaan='$description', date_publish_pengadaan='$date', time_publish_pengadaan='$time'  WHERE id_pengadaan='$id'") or die(mysqli_error());
   }
   else if($image_name!="")
   {
-    unlink("../assets/image/".$data2['image']);
-    $update = mysqli_query($conn,"UPDATE pengadaan SET title='$title',description='$description', date_publish='$date', time_publish='$time', image='$image_name' WHERE id_pengadaan='$id'") or die(mysqli_error());
+    unlink("../assets/image/".$data2['image_pengadaan']);
+    $update = mysqli_query($conn,"UPDATE pengadaan SET title_pengadaan='$title',description_pengadaan='$description', date_publish_pengadaan='$date', time_publish_pengadaan='$time', image_pengadaan='$image_name' WHERE id_pengadaan='$id'") or die(mysqli_error());
   }
 
   if(!$update)
@@ -112,7 +112,7 @@ else
   <aside>
     <div id="sidebar"  class="nav-collapse ">
       <ul class="sidebar-menu" id="nav-accordion">
-        <p class="centered"><img class="img-thumbnail" width="100" src="../assets/image/<?php echo $data2 ['image']; ?>"/></p>
+        <p class="centered"><img class="img-thumbnail" width="100" src="../assets/image/<?php echo $data ['image']; ?>"/></p>
         <h5 class="centered"><?php echo $_SESSION['admin'] ?></h5>
         <li class="mt">
           <a class="active" href="../dashboard_admin/index.php">
@@ -188,6 +188,16 @@ else
             <li><a  href="../data_user/index.php">List Data</a></li>
           </ul>
         </li>
+        <li class="sub-menu">
+          <a href="javascript:;" >
+            <i class=" glyphicon glyphicon-chevron-down fa fa-tasks"></i>
+            <span>Pemenang</span>
+          </a>
+          <ul class="sub">
+            <li><a  href="../data_pemenang/add.php">New Data</a></li>
+            <li><a  href="../data_pemenang/index.php">List Data</a></li>
+          </ul>
+        </li>
       </ul style="padding-bottom=20">
     </div>
   </aside>
@@ -205,18 +215,18 @@ else
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="form-group">
                   <label>Title</label> 	
-                  <input type="text" name="title" class="form-control" value="<?php echo $data['title']; ?>" required>
+                  <input type="text" name="title" class="form-control" value="<?php echo $data['title_pengadaan']; ?>" required>
                 </div>
                 <div class="form-group">
                   <label>desc</label>   
-                  <textarea id="editor1" name="description" rows="10" cols="80" required><?php echo ($data['description']); ?></textarea>
+                  <textarea id="editor1" name="description" rows="10" cols="80" required><?php echo ($data['description_pengadaan']); ?></textarea>
                 </div>
                 <div class="form-group">
                   <label>Date Publish</label>   
-                  <input type="date" name="date"  id="date" class="form-control" value="<?php echo($data['date_publish']); ?>" required>
+                  <input type="date" name="date"  id="date" class="form-control" value="<?php echo($data['date_publish_pengadaan']); ?>" required>
                 </div>
                 <div class="input-group clockpicker" data-placement="top" data-align="top" data-autoclose="true">
-                  <input type="text" name="time" class="form-control" value="<?php echo($data['time_publish']); ?>">
+                  <input type="text" name="time" class="form-control" value="<?php echo($data['time_publish_pengadaan']); ?>">
                   <span class="input-group-addon">
                     <span class="glyphicon glyphicon-time"></span>
                   </span>

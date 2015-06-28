@@ -22,12 +22,16 @@ include('../config/connection.php');
 						<i class=" glyphicon glyphicon-user"></i>(123) 456-7890
 					</div>
 					<div>
+					<form action="result.php" method="post"  enctype="multipart/form-data">
 						<div class="input-group search col-md-3">
-							<input type="text" class="form-control">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button"><i class=" glyphicon glyphicon-search"></i></button>
-							</span>
+						
+								<input type="text" class="form-control" name="keyword">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="submit"><i class=" glyphicon glyphicon-search"></i></button>
+								</span>
+							
 						</div>
+						</form>
 					</div>
 				</div>
 				<div class="col-md-12">
@@ -46,7 +50,7 @@ include('../config/connection.php');
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav navbar-right">
 									<li><a href="index.php" class="btn btn-default">Home</a></li>
-									<li><a href="news.php" class="btn btn-default">All News</a></li>
+									<li><a href="news.php" class="btn btn-default">All Winner</a></li>
 									<li><a href="faqs.php" class="btn btn-default">FAQ's</a></li>
 									<li><a href="register.php" class="btn btn-default">Supplier Registration</a></li>
 									<li><a href="contact-us.php" class="btn btn-default">Contact Us</a></li>
@@ -118,11 +122,11 @@ include('../config/connection.php');
 												<?php echo '<a href="detail_berita.php?id='.base64_encode($data['id_berita']).'" >' ?>
 												<li>
 													<div class="col-md-12 news-item">
-														<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;<?php $isi= $data['title']; 
+														<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;<?php $isi= $data['title_berita']; 
 															echo  substr($isi,0,30);
 															?></div>
 															<div class="col-md-12 desc-news">
-																<?php $isi= $data['description']; 
+																<?php $isi= $data['description_berita']; 
 																echo  substr($isi,0,60);
 																?>
 															</div>
@@ -177,15 +181,15 @@ include('../config/connection.php');
 												<?php echo '<a href="detail_pengadaan.php?id='.base64_encode($data['id_pengadaan']).'" >' ?>
 												<li>
 													<div class="col-md-12 news-item2">
-														<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;<?php $isi= $data['title'];
+														<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;<?php $isi= $data['title_pengadaan'];
 															echo  substr($isi,0,30);
 															?></div>
 															<div class="col-md-12 desc-news">
-																<?php $isi= $data['description']; 
+																<?php $isi= $data['description_pengadaan']; 
 																echo  substr($isi,0,200);
 																?>
 															</div>
-															<div class="col-md-12 date-news"><?php echo $data['date_publish']; ?></div>
+															<div class="col-md-12 date-news"><?php echo $data['date_publish_pengadaan']; ?></div>
 															<div class="col-md-12 kind-news">Pengadaan</div>
 														</div>
 													</li>
@@ -208,38 +212,38 @@ include('../config/connection.php');
 												<?php echo '<a href="detail_lelang.php?id='.base64_encode($data['id_lelang']).'" >' ?>
 												<li>
 													<div class="col-md-12 news-item2">
-														<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;<?php $isi=$data['title'];
+														<div class="col-md-12 title-news "><i class=" glyphicon glyphicon-file"></i>&nbsp;<?php $isi=$data['title_lelang'];
 															echo  substr($isi,0,30);
-														 ?></div>
-														<div class="col-md-12 desc-news">
-															<?php $isi=$data['description']; 
-															echo  substr($isi,0,200);
-															?>
+															?></div>
+															<div class="col-md-12 desc-news">
+																<?php $isi=$data['description_lelang']; 
+																echo  substr($isi,0,200);
+																?>
+															</div>
+															<div class="col-md-12 date-news"><?php echo $data['date_publish_lelang']; ?></div>
+															<div class="col-md-12 kind-news">lelang</div>
 														</div>
-														<div class="col-md-12 date-news"><?php echo $data['date_publish']; ?></div>
-														<div class="col-md-12 kind-news">lelang</div>
-													</div>
-												</li>
-											</a>
-										</ul>
-										<?php        
-									}
-									?>
+													</li>
+												</a>
+											</ul>
+											<?php        
+										}
+										?>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<section class="footer">
-		<div class="col-md-12 copyright" align="center">
-			<span><i class="glyphicon glyphicon-copyright-mark"></i>&nbsp;Copyright 2015</span>
-		</div>
-	</section>
-</body>
-<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
-<script type="text/javascript" src="../assets/js/bootstrap.js"></script>
-<script type="text/javascript" src="../assets/js/custom.js"></script>
-</html>
+		</section>
+		<section class="footer">
+			<div class="col-md-12 copyright" align="center">
+				<span><i class="glyphicon glyphicon-copyright-mark"></i>&nbsp;Copyright 2015</span>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript" src="../assets/js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="../assets/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../assets/js/custom.js"></script>
+	</html>

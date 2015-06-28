@@ -48,7 +48,7 @@ else
       </div>
     </header>
   </section>
-  <aside>
+<aside>
     <div id="sidebar"  class="nav-collapse ">
       <ul class="sidebar-menu" id="nav-accordion">
         <p class="centered"><img class="img-thumbnail" width="100" src="../assets/image/<?php echo $data ['image']; ?>"/></p>
@@ -127,6 +127,16 @@ else
             <li><a  href="../data_user/index.php">List Data</a></li>
           </ul>
         </li>
+        <li class="sub-menu">
+          <a href="javascript:;" >
+            <i class=" glyphicon glyphicon-chevron-down fa fa-tasks"></i>
+            <span>Pemenang</span>
+          </a>
+          <ul class="sub">
+            <li><a  href="../data_pemenang/add.php">New Data</a></li>
+            <li><a  href="../data_pemenang/index.php">List Data</a></li>
+          </ul>
+        </li>
       </ul style="padding-bottom=20">
     </div>
   </aside>
@@ -153,8 +163,8 @@ else
 
             <tr>
               <td><?php echo $no; ?></td>
-              <td><?php echo $data['title']; ?></td>
-              <td><?php echo $data['date_publish']; ?></td>
+              <td><?php echo $data['title_berita']; ?></td>
+              <td><?php echo $data['date_publish_berita']; ?></td>
               <td align="center"><?php echo '<a href="detail.php?id='.base64_encode($data['id_berita']).'" class="btn btn-info">Details</a>&nbsp;<a href="edit.php?id='.base64_encode($data['id_berita']).'" class="btn btn-success">Edit</a>&nbsp;<a href="delete.php?id='.base64_encode($data['id_berita']).'" class="btn btn-success">Hapus</a>';?></td>
             </tr>
             <?php        

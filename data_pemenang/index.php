@@ -7,45 +7,6 @@ if(!isset($_SESSION['admin'])){
 }
 ?>
 <?php
-if(!empty($_POST["add"]))
-{
-  include('../config/connection.php');
-  $username		= $_POST['username'];
-  $password		=base64_encode($_POST['password']);
-  $level		= $_POST['level'];
-  $email		= $_POST['email'];
-
-  $image_name	= $username.$email.addslashes(isset($_FILES['image']['name']) ? $_FILES['image']['name'] : null);
-  $file = @$_FILES['image']['tmp_name'];
-  $direktori = "../assets/image/";
-  $saveImage=move_uploaded_file($file, $direktori.$image_name);
-  if($saveImage)
-  {
-    $input = mysqli_query($conn,"INSERT INTO user VALUES (NULL, '$username', '$password', '$email','$level', '$image_name')") or die(mysqli_error());
-    if(!$input)
-    {
-      ?>
-      <script type="text/javascript">
-        alert("Gagal Simpan Data,Mohon Verifikasi Kembali Data");
-      </script>
-      <?php 
-    } 
-    else 
-    {
-      header("Location:add.php");
-    }
-  }
-  else
-  {
-    ?>
-    <script type="text/javascript">
-      alert("Mohon Verifikasi Kembali, Foto Tidak Boleh Kosong, Pastikan File Adalah Image");
-    </script>
-    <?php 
-  }
-}
-?>
-<?php
 include('../config/connection.php');
 @$username = ($_SESSION['admin']);
 $show = mysqli_query($conn,"SELECT image FROM user WHERE username='$username'");
@@ -62,6 +23,7 @@ else
 <html>
 <head>
   <title></title>
+  <link rel="stylesheet" href="../assets/css/dataTables.bootstrap.css">
   <link href="../assets/css/bootstrap.css" rel="stylesheet">
   <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
   <link href="../assets/css/style.css" rel="stylesheet">
@@ -86,7 +48,7 @@ else
       </div>
     </header>
   </section>
- <aside>
+  <aside>
     <div id="sidebar"  class="nav-collapse ">
       <ul class="sidebar-menu" id="nav-accordion">
         <p class="centered"><img class="img-thumbnail" width="100" src="../assets/image/<?php echo $data ['image']; ?>"/></p>
@@ -180,48 +142,38 @@ else
   </aside>
   <section id="main-content">
     <section class="wrapper">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Content</h3>
+      <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <td>NO</td>
+            <th>ID USER</th>
+            <th>ID PENGADAAN</th>
+            <th class="datatable-nosort">Action</th>
+          </tr>
+        </thead>
+        <div  align="right">
+          <a class="btn btn-success btn-xs btn-add" href="add.php">Tambah Data</a>
         </div>
-        <div class="panel-body">
-          <section class="content-tambah">
-            <div class="col-md-6">
-              <form action="add.php" method="post"  enctype="multipart/form-data">
-                <table>
-                  <div class="form-group">
-                    <label>Username</label> 	
-                    <input type="text" name="username" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label>Password</label> 	
-                    <input type="password" name="password" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label>Email</label> 	
-                    <input type="email" name="email" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label>Level&nbsp;:&nbsp;</label><br>
-                    <select name="level" required class="btn btn-default">
-                      <option value="admin">Admin</option>
-                      <option value="guest">Guest</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Pilih File&nbsp;:&nbsp;</label> <input type="file" name="image" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="submit" name="add" value="Simpan" class="btn btn-success">
-                    <a href="index.php" class="btn btn-default">Beranda</a>
-                  </div>
-                </table>
-              </form>
-            </div>
-            <div class="col-md-3"></div>
-          </section>
-        </div>
-      </div>
+        <tbody>
+          <?php 
+          $no = 1;
+          $query = mysqli_query($conn,"select * from pemenang p 
+            inner join user u on p.user_id=u.id_user
+            inner join pengadaan pe on p.pengadaan_id=pe.id_pengadaan order by id_pemenang") or die (mysqli_error($conn));
+          while ($data = mysqli_fetch_array($query)){
+            ?>
+            <tr>
+              <td><?php echo $no; ?></td>
+              <td><?php echo $data['id_user']; ?></td>
+              <td><?php echo $data['id_pengadaan']; ?></td>
+              <td align="center"><?php echo '<a href="delete.php?id='.base64_encode($data['id_pemenang']).'" class="btn btn-success">Hapus</a>';?></td>
+            </tr>
+            <?php        
+            $no++;
+          }
+          ?>
+        </tbody>
+      </table>
     </section>
   </section>
 </body>
@@ -231,4 +183,20 @@ else
 <script src="../assets/js/jquery.scrollTo.min.js"></script>
 <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 <script src="../assets/js/common-scripts.js"></script>
+<script src="../assets/js/jquery.dataTables.min.js"></script>
+<script src="../assets/js/dataTables.bootstrap.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#example').dataTable({
+      "lengthMenu":[ 5, 10, 25, 50, 100]
+    });
+  });
+
+// $("table").DataTable({
+//   columnDefs: [{
+//     targets: "datatable-nosort",
+//     orderable: false
+//   }]
+// });
+</script>
 </html>

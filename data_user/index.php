@@ -72,7 +72,7 @@ else
       </div>
     </header>
   </section>
-  <aside>
+<aside>
     <div id="sidebar"  class="nav-collapse ">
       <ul class="sidebar-menu" id="nav-accordion">
         <p class="centered"><img class="img-thumbnail" width="100" src="../assets/image/<?php echo $data ['image']; ?>"/></p>
@@ -151,6 +151,16 @@ else
             <li><a  href="../data_user/index.php">List Data</a></li>
           </ul>
         </li>
+        <li class="sub-menu">
+          <a href="javascript:;" >
+            <i class=" glyphicon glyphicon-chevron-down fa fa-tasks"></i>
+            <span>Pemenang</span>
+          </a>
+          <ul class="sub">
+            <li><a  href="../data_pemenang/add.php">New Data</a></li>
+            <li><a  href="../data_pemenang/index.php">List Data</a></li>
+          </ul>
+        </li>
       </ul style="padding-bottom=20">
     </div>
   </aside>
@@ -210,7 +220,7 @@ else
                 <td width="30%" align="center"><?php echo $data ['username']; ?></td>
                 <td width="25%" align="center"><?php echo $data ['level']; ?> </td>
                 <td width="25%" align="center"><img class="img-thumbnail" src="../assets/image/<?php echo $data ['image']; ?>"/></td>
-                <td width="15%" align="center"><?php echo '<a href="edit.php?id='.base64_encode($data['user_id']).'" class="btn btn-success">Edit</a>&nbsp;<a href="delete.php?id='.base64_encode($data['user_id']).'" class="btn btn-success">Hapus</a>';?></td>
+                <td width="15%" align="center"><?php echo '<a href="edit.php?id='.base64_encode($data['id_user']).'" class="btn btn-success">Edit</a>&nbsp;<a href="delete.php?id='.base64_encode($data['id_user']).'" class="btn btn-success">Hapus</a>';?></td>
               </tr>
               <?php
               $i++; 

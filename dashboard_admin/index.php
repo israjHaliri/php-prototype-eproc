@@ -127,6 +127,16 @@ else
             <li><a  href="../data_user/index.php">List Data</a></li>
           </ul>
         </li>
+        <li class="sub-menu">
+          <a href="javascript:;" >
+            <i class=" glyphicon glyphicon-chevron-down fa fa-tasks"></i>
+            <span>Pemenang</span>
+          </a>
+          <ul class="sub">
+            <li><a  href="../data_pemenang/add.php">New Data</a></li>
+            <li><a  href="../data_pemenang/index.php">List Data</a></li>
+          </ul>
+        </li>
       </ul style="padding-bottom=20">
     </div>
   </aside>

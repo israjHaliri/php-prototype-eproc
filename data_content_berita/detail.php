@@ -149,6 +149,16 @@ else
             <li><a  href="../data_user/index.php">List Data</a></li>
           </ul>
         </li>
+        <li class="sub-menu">
+          <a href="javascript:;" >
+            <i class=" glyphicon glyphicon-chevron-down fa fa-tasks"></i>
+            <span>Pemenang</span>
+          </a>
+          <ul class="sub">
+            <li><a  href="../data_pemenang/add.php">New Data</a></li>
+            <li><a  href="../data_pemenang/index.php">List Data</a></li>
+          </ul>
+        </li>
       </ul style="padding-bottom=20">
     </div>
   </aside>
@@ -162,16 +172,16 @@ else
           <div class="col-md-2"></div>
           <div class="col-md-8 col-sm-8">
             <div class="block-text">
-              <a><?php echo $data['title']; ?></a>
+              <a><?php echo $data['title_berita']; ?></a>
               <div class="mark">
-                <img class="img-thumbnail" src="../assets/image/<?php echo $data ['image']; ?>"/>
+                <img class="img-thumbnail" src="../assets/image/<?php echo $data ['image_berita']; ?>"/>
               </div>
               <p>
-                <?php echo $data['description']; ?>
+                <?php echo $data['description_berita']; ?>
               </p>
               <div align="right">
-                <small><?php echo $data['date_publish']; ?></small>
-                <small><?php echo $data['time_publish']; ?></small>
+                <small><?php echo $data['date_publish_berita']; ?></small>
+                <small><?php echo $data['time_publish_berita']; ?></small>
               </div>
               <ins class="ab zmin sprite sprite-i-triangle block"></ins>
             </div>

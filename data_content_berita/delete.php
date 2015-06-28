@@ -25,7 +25,7 @@ if(isset($_REQUEST['id']))
 		if($del)
 		{
 			
-			unlink("../assets/image/".$data['image']);
+			unlink("../assets/image/".$data['image_berita']);
 			header("location:index.php");
 		}
 		else

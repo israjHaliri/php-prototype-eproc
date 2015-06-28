@@ -20,7 +20,7 @@ if(!empty($_POST["add"]))
   $saveImage=move_uploaded_file($file, $direktori.$image_name);
   if($saveImage)
   {
-    $input = mysqli_query($conn,"INSERT INTO berita VALUES (NULL, '$title', '$description','$date','$time', '$image_name')") or die(mysqli_error());
+    $input = mysqli_query($conn,"INSERT INTO berita VALUES (NULL, '$title', '$description','$date','$time', '$image_name')") or die(mysqli_error($conn));
     if(!$input)
     {
       ?>
@@ -77,24 +77,24 @@ else
 </head>
 <body>
  <section id="container" >
-    <header class="header black-bg">
-      <div class="sidebar-toggle-box">
-        <div class="glyphicon glyphicon-align-justify fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation">
-        </div>
+  <header class="header black-bg">
+    <div class="sidebar-toggle-box">
+      <div class="glyphicon glyphicon-align-justify fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation">
       </div>
-      <a class="logo">
-        <b>DASH<span>BOARD</span></b>
-      </a>
-      <div class="top-menu">
-        <ul class="nav pull-right top-menu">
-          <li>
-            <a class="logout" href="../dashboard_admin/logout.php">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </header>
-  </section>
-  <aside>
+    </div>
+    <a class="logo">
+      <b>DASH<span>BOARD</span></b>
+    </a>
+    <div class="top-menu">
+      <ul class="nav pull-right top-menu">
+        <li>
+          <a class="logout" href="../dashboard_admin/logout.php">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+</section>
+<aside>
     <div id="sidebar"  class="nav-collapse ">
       <ul class="sidebar-menu" id="nav-accordion">
         <p class="centered"><img class="img-thumbnail" width="100" src="../assets/image/<?php echo $data ['image']; ?>"/></p>
@@ -173,54 +173,67 @@ else
             <li><a  href="../data_user/index.php">List Data</a></li>
           </ul>
         </li>
+        <li class="sub-menu">
+          <a href="javascript:;" >
+            <i class=" glyphicon glyphicon-chevron-down fa fa-tasks"></i>
+            <span>Pemenang</span>
+          </a>
+          <ul class="sub">
+            <li><a  href="../data_pemenang/add.php">New Data</a></li>
+            <li><a  href="../data_pemenang/index.php">List Data</a></li>
+          </ul>
+        </li>
       </ul style="padding-bottom=20">
     </div>
   </aside>
-  <section id="main-content">
-    <section class="wrapper">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Content</h3>
-        </div>
-        <div class="panel-body">
-          <section class="content-tambah">
-            <div class="col-md-6">
-              <form action="add.php" method="post"  enctype="multipart/form-data">
-                <table>
-                  <div class="form-group">
-                    <label>Title</label> 	
-                    <input type="text" name="title" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label>desc</label> 	
-                    <textarea id="editor1" name="description" rows="10" cols="80"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label>Date Publish</label> 	
-                    <input type="date" name="date" class="form-control" require>
-                  </div>
-                  <div class="input-group clockpicker" data-placement="top" data-align="top" data-autoclose="true">
-                    <input type="text" name="time" class="form-control" value="01:00">
-                    <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-time"></span>
-                    </span>
-                  </div>
-                  <div class="form-group">
-                    <label>Pilih File&nbsp;:&nbsp;</label> <input type="file" name="image" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="submit" name="add" value="Simpan" class="btn btn-success">
-                    <a href="index.php" class="btn btn-default">Beranda</a>
-                  </div>
-                </table>
-              </form>
-            </div>
-            <div class="col-md-3"></div>
-          </section>
-        </div>
+<section id="main-content">
+  <section class="wrapper">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Content</h3>
       </div>
-    </section>
+      <div class="panel-body">
+        <section class="content-tambah">
+          <div class="col-md-6">
+            <form action="add.php" method="post"  enctype="multipart/form-data">
+              <table>
+                <div class="form-group">
+                  <label>Title</label>  
+                  <input type="text" name="title" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="hidden" name="id_produk" value="<?php echo $product['id_produk'];?>"/>
+                </div>
+                <div class="form-group">
+                  <label>desc</label> 	
+                  <textarea id="editor1" name="description" rows="10" cols="80"></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Date Publish</label> 	
+                  <input type="date" name="date" class="form-control" require>
+                </div>
+                <div class="input-group clockpicker" data-placement="top" data-align="top" data-autoclose="true">
+                  <input type="text" name="time" class="form-control" value="01:00">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-time"></span>
+                  </span>
+                </div>
+                <div class="form-group">
+                  <label>Pilih File&nbsp;:&nbsp;</label> <input type="file" name="image" required>
+                </div>
+                <div class="form-group">
+                  <input type="submit" name="add" value="Simpan" class="btn btn-success">
+                  <a href="index.php" class="btn btn-default">Beranda</a>
+                </div>
+              </table>
+            </form>
+          </div>
+          <div class="col-md-3"></div>
+        </section>
+      </div>
+    </div>
   </section>
+</section>
 </body>
 <script src="../assets/js/jquery-2.1.3.min.js"></script>
 <script src="../assets/js/bootstrap.js"></script>

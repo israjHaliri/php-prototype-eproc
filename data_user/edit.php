@@ -9,7 +9,7 @@ if(!isset($_SESSION['admin'])){
 <?php
 include('../config/connection.php');
 @$id = base64_decode($_REQUEST['id']);
-$show = mysqli_query($conn,"SELECT * FROM user WHERE user_id='$id'");
+$show = mysqli_query($conn,"SELECT * FROM user WHERE id_user='$id'");
 if(mysqli_num_rows($show) == 0)
 {
 // echo '<script>window.history.back()</script>';
@@ -39,12 +39,12 @@ if(isset($_REQUEST['save']))
 
   if($image_name=="")
   {
-    $update = mysqli_query($conn,"UPDATE user SET username='$username', password='$password', level='$level', email='$email' WHERE user_id='$id'") or die(mysqli_error());
+    $update = mysqli_query($conn,"UPDATE user SET username='$username', password='$password', level='$level', email='$email' WHERE id_user='$id'") or die(mysqli_error());
   }
   else if($image_name!="")
   {
     unlink("../assets/image/".$data['image']);
-    $update = mysqli_query($conn,"UPDATE user SET username='$username', password='$password', level='$level', email='$email', image='$image_name' WHERE user_id='$id'") or die(mysqli_error());
+    $update = mysqli_query($conn,"UPDATE user SET username='$username', password='$password', level='$level', email='$email', image='$image_name' WHERE id_user='$id'") or die(mysqli_error());
   }
 
   if(!$update)
@@ -102,10 +102,10 @@ else
       </div>
     </header>
   </section>
-  <aside>
+ <aside>
     <div id="sidebar"  class="nav-collapse ">
       <ul class="sidebar-menu" id="nav-accordion">
-        <p class="centered"><img class="img-thumbnail" width="100" src="../assets/image/<?php echo $data2 ['image']; ?>"/></p>
+        <p class="centered"><img class="img-thumbnail" width="100" src="../assets/image/<?php echo $data ['image']; ?>"/></p>
         <h5 class="centered"><?php echo $_SESSION['admin'] ?></h5>
         <li class="mt">
           <a class="active" href="../dashboard_admin/index.php">
@@ -179,6 +179,16 @@ else
           <ul class="sub">
             <li><a  href="../data_user/add.php">New Data</a></li>
             <li><a  href="../data_user/index.php">List Data</a></li>
+          </ul>
+        </li>
+        <li class="sub-menu">
+          <a href="javascript:;" >
+            <i class=" glyphicon glyphicon-chevron-down fa fa-tasks"></i>
+            <span>Pemenang</span>
+          </a>
+          <ul class="sub">
+            <li><a  href="../data_pemenang/add.php">New Data</a></li>
+            <li><a  href="../data_pemenang/index.php">List Data</a></li>
           </ul>
         </li>
       </ul style="padding-bottom=20">

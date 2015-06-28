@@ -9,19 +9,13 @@ if(!isset($_SESSION['admin'])){
 <?php
 if(!empty($_POST["add"]))
 {
-  include('../config/connection.php');
-  $username		= $_POST['username'];
-  $password		=base64_encode($_POST['password']);
-  $level		= $_POST['level'];
-  $email		= $_POST['email'];
 
-  $image_name	= $username.$email.addslashes(isset($_FILES['image']['name']) ? $_FILES['image']['name'] : null);
-  $file = @$_FILES['image']['tmp_name'];
-  $direktori = "../assets/image/";
-  $saveImage=move_uploaded_file($file, $direktori.$image_name);
-  if($saveImage)
-  {
-    $input = mysqli_query($conn,"INSERT INTO user VALUES (NULL, '$username', '$password', '$email','$level', '$image_name')") or die(mysqli_error());
+
+  include('../config/connection.php');
+  $id_user		= $_POST['iduser'];
+  $id_pengadaan		=$_POST['idpengadaan'];
+
+    $input = mysqli_query($conn,"INSERT INTO pemenang VALUES (NULL, '$id_user', '$id_pengadaan')") or die(mysqli_error());
     if(!$input)
     {
       ?>
@@ -34,15 +28,6 @@ if(!empty($_POST["add"]))
     {
       header("Location:add.php");
     }
-  }
-  else
-  {
-    ?>
-    <script type="text/javascript">
-      alert("Mohon Verifikasi Kembali, Foto Tidak Boleh Kosong, Pastikan File Adalah Image");
-    </script>
-    <?php 
-  }
 }
 ?>
 <?php
@@ -66,6 +51,15 @@ else
   <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
   <link href="../assets/css/style.css" rel="stylesheet">
   <link href="../assets/css/style-responsive.css" rel="stylesheet">
+  <link href="../assets/css/style-responsive.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/jquery-ui.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-clockpicker.css">
+  <style type="text/css">
+    li{
+      list-style: yes;
+    }
+  </style>
+
 </head>
 <body>
   <section id="container" >
@@ -86,7 +80,7 @@ else
       </div>
     </header>
   </section>
- <aside>
+<aside>
     <div id="sidebar"  class="nav-collapse ">
       <ul class="sidebar-menu" id="nav-accordion">
         <p class="centered"><img class="img-thumbnail" width="100" src="../assets/image/<?php echo $data ['image']; ?>"/></p>
@@ -180,50 +174,52 @@ else
   </aside>
   <section id="main-content">
     <section class="wrapper">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Content</h3>
-        </div>
-        <div class="panel-body">
-          <section class="content-tambah">
-            <div class="col-md-6">
-              <form action="add.php" method="post"  enctype="multipart/form-data">
-                <table>
-                  <div class="form-group">
-                    <label>Username</label> 	
-                    <input type="text" name="username" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label>Password</label> 	
-                    <input type="password" name="password" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label>Email</label> 	
-                    <input type="email" name="email" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label>Level&nbsp;:&nbsp;</label><br>
-                    <select name="level" required class="btn btn-default">
-                      <option value="admin">Admin</option>
-                      <option value="guest">Guest</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>Pilih File&nbsp;:&nbsp;</label> <input type="file" name="image" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="submit" name="add" value="Simpan" class="btn btn-success">
-                    <a href="index.php" class="btn btn-default">Beranda</a>
-                  </div>
-                </table>
-              </form>
-            </div>
-            <div class="col-md-3"></div>
-          </section>
-        </div>
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Content</h3>
       </div>
-    </section>
-  </section>
+      <div class="panel-body">
+        <section class="content-tambah">
+          <div class="col-md-6">
+            <form action="add.php" method="post"  enctype="multipart/form-data">
+              <table>
+                <div class="form-group">
+                  <label>User ID </label> 	
+                  <select class="form-control" name="iduser">
+                    <?php
+                    $query = "SELECT * FROM user";
+                    $result = mysqli_query($conn,$query);
+                    while($row=mysqli_fetch_array($result, MYSQL_ASSOC)){                                                 
+                     echo "<option value='".$row['id_user']."'>".$row['id_user']."</option>";
+                   }
+                   ?>
+                 </select>
+               </div>
+               <div class="form-group">
+                  <label>Pengadaan ID </label>  
+                  <select class="form-control" name="idpengadaan">
+                    <?php
+                    $query = "SELECT * FROM pengadaan";
+                    $result = mysqli_query($conn,$query);
+                    while($row=mysqli_fetch_array($result, MYSQL_ASSOC)){                                                 
+                     echo "<option value='".$row['id_pengadaan']."'>".$row['id_pengadaan']."</option>";
+                   }
+                   ?>
+                 </select>
+               </div>
+              <div class="form-group">
+                <input type="submit" name="add" value="Simpan" class="btn btn-success">
+                <a href="index.php" class="btn btn-default">Beranda</a>
+              </div>
+            </table>
+          </form>
+        </div>
+        <div class="col-md-3"></div>
+      </section>
+    </div>
+  </div>
+</section>
+</section>
 </body>
 <script src="../assets/js/jquery-2.1.3.min.js"></script>
 <script src="../assets/js/bootstrap.js"></script>
@@ -231,4 +227,28 @@ else
 <script src="../assets/js/jquery.scrollTo.min.js"></script>
 <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 <script src="../assets/js/common-scripts.js"></script>
+<script src="../assets/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+// ckeditor
+if ( typeof CKEDITOR == 'undefined' )
+{
+  document.write(
+    'CKEditor not found');
+}
+else
+{
+  var editor = CKEDITOR.replace( 'editor1' ); 
+  CKFinder.setupCKEditor( editor, '' ) ;
+}
+</script>
+<script type="text/javascript" src="../assets/js/bootstrap-clockpicker.min.js"></script>
+<script type="text/javascript" src="../assets/js/highlight.min.js"></script>
+<script type="text/javascript">
+// time picker
+$('.clockpicker').clockpicker()
+.find('input').change(function(){
+  console.log(this.value);
+});
+</script>
+
 </html>

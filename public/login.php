@@ -55,12 +55,16 @@ if(isset($_SESSION['admin'])){
 						<i class=" glyphicon glyphicon-user"></i>(123) 456-7890
 					</div>
 					<div>
+					<form action="result.php" method="post"  enctype="multipart/form-data">
 						<div class="input-group search col-md-3">
-							<input type="text" class="form-control">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button"><i class=" glyphicon glyphicon-search"></i></button>
-							</span>
+						
+								<input type="text" class="form-control" name="keyword">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="submit"><i class=" glyphicon glyphicon-search"></i></button>
+								</span>
+							
 						</div>
+						</form>
 					</div>
 				</div>
 				<div class="col-md-12">
@@ -79,19 +83,11 @@ if(isset($_SESSION['admin'])){
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav navbar-right">
 									<li><a href="index.php" class="btn btn-default">Home</a></li>
-									<li><a href="news.php" class="btn btn-default">All News</a></li>
+									<li><a href="news.php" class="btn btn-default">All Winner</a></li>
 									<li><a href="faqs.php" class="btn btn-default">FAQ's</a></li>
 									<li><a href="register.php" class="btn btn-default">Supplier Registration</a></li>
 									<li><a href="contact-us.php" class="btn btn-default">Contact Us</a></li>
 									<li><a href="login.php" class="btn btn-default">Login</a></li>
-									<!-- <li class="dropdown">
-										<a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Login&nbsp;<span class="caret"></span></a>
-										<ul class="dropdown-menu" role="menu">
-											<li><a href="" data-toggle="modal" data-target="#myModal">Option1</a></li>
-											<li class="divider"></li>
-											<li><a href="" >Option2</a></li>
-										</ul>
-									</li> -->
 								</ul>
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->

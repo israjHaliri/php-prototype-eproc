@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.4.10
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: 25 Mei 2015 pada 04.18
--- Versi Server: 5.6.21
--- PHP Version: 5.5.19
+-- Host: localhost
+-- Generation Time: Jun 28, 2015 at 10:03 AM
+-- Server version: 5.6.24
+-- PHP Version: 5.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `eproc`
@@ -23,68 +23,41 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `berita`
+-- Table structure for table `berita`
 --
 
 CREATE TABLE IF NOT EXISTS `berita` (
-`id_berita` int(11) NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `description` text NOT NULL,
-  `date_publish` varchar(25) NOT NULL,
-  `time_publish` time NOT NULL,
-  `image` varchar(500) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=latin1;
+  `id_berita` int(11) NOT NULL,
+  `title_berita` varchar(100) NOT NULL,
+  `description_berita` text NOT NULL,
+  `date_publish_berita` varchar(25) NOT NULL,
+  `time_publish_berita` time NOT NULL,
+  `image_berita` varchar(500) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=214 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `berita`
+-- Dumping data for table `berita`
 --
 
-INSERT INTO `berita` (`id_berita`, `title`, `description`, `date_publish`, `time_publish`, `image`) VALUES
-(125, 'This prototype eProcurement PLN aplication', '<p><span style="background-color:rgb(249, 249, 249); color:rgb(121, 121, 121); font-family:ruda,sans-serif">This prototype eProcurement PLN aplication</span></p>\r\n', '2015-05-22', '01:00:00', 'This prototype eProcurement PLN aplication2015-05-221.png'),
-(126, 'This prototype eProcurement PLN aplication', '<p>This prototype eProcurement PLN aplication</p>\r\n', '2015-05-23', '01:00:00', 'This prototype eProcurement PLN aplication2015-05-231.png'),
-(127, 'This prototype eProcurement PLN aplication', '<p>This prototype eProcurement PLN aplication</p>\r\n', '2015-05-13', '01:00:00', 'This prototype eProcurement PLN aplication2015-05-13165138_173677932673237_4498017_n.jpg'),
-(129, 'This prototype eProcurement PLN aplication', '<p>This prototype eProcurement PLN aplication</p>\r\n', '2015-05-09', '16:20:00', 'This prototype eProcurement PLN aplication2015-05-091.png'),
-(130, 'berita', '<p>berita</p>\r\n', '2015-05-07', '01:05:00', 'berita2015-05-071.png');
+INSERT INTO `berita` (`id_berita`, `title_berita`, `description_berita`, `date_publish_berita`, `time_publish_berita`, `image_berita`) VALUES
+(213, 'berita 12', '', '2015-06-13', '01:00:00', 'berita 122015-06-13admin-lib1.png');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `catalog`
---
-
-CREATE TABLE IF NOT EXISTS `catalog` (
-`id_catalog` int(11) NOT NULL,
-  `lelang_id` int(11) NOT NULL,
-  `berita_id` int(11) NOT NULL,
-  `pengadaan_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `catalog`
---
-
-INSERT INTO `catalog` (`id_catalog`, `lelang_id`, `berita_id`, `pengadaan_id`) VALUES
-(1, 23, 126, 2),
-(2, 23, 126, 3),
-(3, 28, 130, 6),
-(4, 27, 127, 6);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `contact_us`
+-- Table structure for table `contact_us`
 --
 
 CREATE TABLE IF NOT EXISTS `contact_us` (
-`id_contact` int(11) NOT NULL,
+  `id_contact` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `subject` varchar(100) NOT NULL,
   `pesan` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `contact_us`
+-- Dumping data for table `contact_us`
 --
 
 INSERT INTO `contact_us` (`id_contact`, `nama`, `email`, `subject`, `pesan`) VALUES
@@ -96,22 +69,23 @@ INSERT INTO `contact_us` (`id_contact`, `nama`, `email`, `subject`, `pesan`) VAL
 (7, 'asd', 'asd2afg@sdfa', 'bisnis', 'ASd'),
 (8, 'WQDQWJIRJIR', 'QWD@SADF', 'komplen', 'WDQ'),
 (9, 'SETTAN', 'SETTA@FAG', 'komplen', 'SETTAN'),
-(10, 'sistim', 'ssistim@gmail', 'komplen', 'aduh cape');
+(10, 'sistim', 'ssistim@gmail', 'komplen', 'aduh cape'),
+(11, '181', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `eproc`
+-- Table structure for table `eproc`
 --
 
 CREATE TABLE IF NOT EXISTS `eproc` (
   `title` varchar(100) NOT NULL,
   `description` text NOT NULL,
-`id_eproc` int(11) NOT NULL
+  `id_eproc` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `eproc`
+-- Dumping data for table `eproc`
 --
 
 INSERT INTO `eproc` (`title`, `description`, `id_eproc`) VALUES
@@ -120,16 +94,16 @@ INSERT INTO `eproc` (`title`, `description`, `id_eproc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `faqs`
+-- Table structure for table `faqs`
 --
 
 CREATE TABLE IF NOT EXISTS `faqs` (
   `description` text NOT NULL,
-`id_faqs` int(11) NOT NULL
+  `id_faqs` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `faqs`
+-- Dumping data for table `faqs`
 --
 
 INSERT INTO `faqs` (`description`, `id_faqs`) VALUES
@@ -139,34 +113,29 @@ INSERT INTO `faqs` (`description`, `id_faqs`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `lelang`
+-- Table structure for table `lelang`
 --
 
 CREATE TABLE IF NOT EXISTS `lelang` (
-`id_lelang` int(11) NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `description` text NOT NULL,
-  `date_publish` varchar(50) NOT NULL,
-  `time_publish` time NOT NULL,
-  `image` varchar(500) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+  `id_lelang` int(11) NOT NULL,
+  `title_lelang` varchar(100) NOT NULL,
+  `description_lelang` text NOT NULL,
+  `date_publish_lelang` varchar(50) NOT NULL,
+  `time_publish_lelang` time NOT NULL,
+  `image_lelang` varchar(500) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `lelang`
+-- Dumping data for table `lelang`
 --
 
-INSERT INTO `lelang` (`id_lelang`, `title`, `description`, `date_publish`, `time_publish`, `image`) VALUES
-(23, 'This prototype eProcurement PLN aplication', '<p><span style="color:rgb(119, 119, 119); font-family:times new roman,times,serif; font-size:14px">This prototype eProcurement&nbsp;PLN aplication</span></p>\r\n', '2015-05-05', '01:05:00', 'This prototype eProcurement PLN aplication2015-05-051.png'),
-(24, '1This prototype eProcurement PLN aplication', '<p><span style="color:rgb(119, 119, 119); font-family:times new roman,times,serif; font-size:14px">This prototype eProcurement&nbsp;PLN aplication</span></p>\r\n', '2015-05-15', '18:00:00', '1This prototype eProcurement PLN aplication2015-05-15165138_173677932673237_4498017_n.jpg'),
-(25, 'This prototype eProcurement PLN aplication', '<p><span style="color:rgb(119, 119, 119); font-family:times new roman,times,serif; font-size:14px">This prototype eProcurement&nbsp;PLN aplication</span></p>\r\n', '2015-05-10', '16:20:00', 'This prototype eProcurement PLN aplication2015-05-10dttbl.png'),
-(26, 'This prototype eProcurement PLN aplication', '<p>This prototype eProcurement PLN aplication&nbsp;This prototype eProcurement PLN aplication&nbsp;This prototype eProcurement PLN aplication&nbsp;This prototype eProcurement PLN aplication&nbsp;This prototype eProcurement PLN aplication</p>\r\n', '2015-05-13', '06:30:00', 'This prototype eProcurement PLN aplication2015-05-131.png'),
-(27, 'This prototype eProcurement PLN aplication', '<p><span style="color:rgb(119, 119, 119); font-family:times new roman,times,serif; font-size:14px">This prototype eProcurement&nbsp;PLN aplication</span></p>\r\n', '2015-05-16', '06:20:00', 'This prototype eProcurement PLN aplication2015-05-161.png'),
-(28, 'This prototype eProcurement PLN aplication', '<p><span style="color:rgb(119, 119, 119); font-family:times new roman,times,serif; font-size:14px">This prototype eProcurement&nbsp;PLN aplication</span></p>\r\n', '2015-05-06', '06:36:00', 'This prototype eProcurement PLN aplication2015-05-06dttbl.png');
+INSERT INTO `lelang` (`id_lelang`, `title_lelang`, `description_lelang`, `date_publish_lelang`, `time_publish_lelang`, `image_lelang`) VALUES
+(10, 'lelang 12', '', '2015-06-05', '01:00:00', 'lelang 122015-06-05front-lib2.png');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pakta_integritas`
+-- Table structure for table `pakta_integritas`
 --
 
 CREATE TABLE IF NOT EXISTS `pakta_integritas` (
@@ -178,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `pakta_integritas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pakta_integritas`
+-- Dumping data for table `pakta_integritas`
 --
 
 INSERT INTO `pakta_integritas` (`name_file`, `type_file`, `file_size`, `file`, `date_publish`) VALUES
@@ -190,38 +159,54 @@ INSERT INTO `pakta_integritas` (`name_file`, `type_file`, `file_size`, `file`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengadaan`
+-- Table structure for table `pemenang`
 --
 
-CREATE TABLE IF NOT EXISTS `pengadaan` (
-`id_pengadaan` int(11) NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `description` text NOT NULL,
-  `date_publish` varchar(50) NOT NULL,
-  `time_publish` time NOT NULL,
-  `image` varchar(500) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `pemenang` (
+  `id_pemenang` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `pengadaan_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pengadaan`
+-- Dumping data for table `pemenang`
 --
 
-INSERT INTO `pengadaan` (`id_pengadaan`, `title`, `description`, `date_publish`, `time_publish`, `image`) VALUES
-(1, 'sunir', '<p>sunir</p>\r\n', '2015-05-17', '02:00:00', 'sunir2015-05-171.png'),
-(2, 'This prototype eProcurement PLN aplication', '<p>This prototype eProcurement PLN aplication</p>\r\n', '2015-05-01', '05:25:00', 'This prototype eProcurement PLN aplication2015-05-011.png'),
-(3, 'This prototype eProcurement PLN aplication', '<p>This prototype eProcurement PLN aplication</p>\r\n', '2015-05-12', '17:25:00', 'This prototype eProcurement PLN aplication2015-05-12dttbl.png'),
-(4, 'This prototype eProcurement PLN aplication', '<p>This prototype eProcurement PLN aplication</p>\r\n', '2015-05-07', '17:24:00', 'This prototype eProcurement PLN aplication2015-05-07dttbl.png'),
-(5, 'This prototype eProcurement PLN aplication', '<p>This prototype eProcurement PLN aplication</p>\r\n', '2015-04-30', '01:00:00', 'This prototype eProcurement PLN aplication2015-04-30165138_173677932673237_4498017_n.jpg'),
-(6, 'This prototype eProcurement PLN aplication', '<p>This prototype eProcurement PLN aplication</p>\r\n', '2015-05-24', '06:30:00', 'This prototype eProcurement PLN aplication2015-05-24165138_173677932673237_4498017_n.jpg');
+INSERT INTO `pemenang` (`id_pemenang`, `user_id`, `pengadaan_id`) VALUES
+(3, 15, 25),
+(5, 15, 25);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `supplier`
+-- Table structure for table `pengadaan`
+--
+
+CREATE TABLE IF NOT EXISTS `pengadaan` (
+  `id_pengadaan` int(11) NOT NULL,
+  `title_pengadaan` varchar(100) NOT NULL,
+  `description_pengadaan` text NOT NULL,
+  `date_publish_pengadaan` varchar(50) NOT NULL,
+  `time_publish_pengadaan` time NOT NULL,
+  `image_pengadaan` varchar(500) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pengadaan`
+--
+
+INSERT INTO `pengadaan` (`id_pengadaan`, `title_pengadaan`, `description_pengadaan`, `date_publish_pengadaan`, `time_publish_pengadaan`, `image_pengadaan`) VALUES
+(25, 'testing23', '<p>ad</p>\r\n', '2015-06-06', '01:00:00', 'testing232015-06-06admin-lib2.png'),
+(26, 'pengadaan 2', '', '', '01:00:00', 'pengadaan 2cs.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier`
 --
 
 CREATE TABLE IF NOT EXISTS `supplier` (
-`id_supplier` int(11) NOT NULL,
+  `id_supplier` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `alamat` text NOT NULL,
   `password` varchar(100) NOT NULL,
@@ -233,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `supplier` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `supplier`
+-- Dumping data for table `supplier`
 --
 
 INSERT INTO `supplier` (`id_supplier`, `nama`, `alamat`, `password`, `nama_perusahaan_penyedia`, `no_pkp`, `bentuk_usaha`, `npwp`, `status`) VALUES
@@ -247,24 +232,24 @@ INSERT INTO `supplier` (`id_supplier`, `nama`, `alamat`, `password`, `nama_perus
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-`user_id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `level` varchar(50) NOT NULL,
   `image` varchar(500) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `password`, `email`, `level`, `image`) VALUES
-(14, 'israj', 'MDI2', 'israj.haliri@gmail.com', 'admin', 'israjisraj.haliri@gmail.com1.png');
+INSERT INTO `user` (`id_user`, `username`, `password`, `email`, `level`, `image`) VALUES
+(15, 'israj', 'MDI2', 'israj.haliri@gmail.com', 'admin', 'israjisraj.haliri@gmail.comisrajisraj.haliri@gmail.com165138_173677932673237_4498017_n.jpg');
 
 --
 -- Indexes for dumped tables
@@ -274,55 +259,59 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `email`, `level`, `image`
 -- Indexes for table `berita`
 --
 ALTER TABLE `berita`
- ADD PRIMARY KEY (`id_berita`);
-
---
--- Indexes for table `catalog`
---
-ALTER TABLE `catalog`
- ADD PRIMARY KEY (`id_catalog`), ADD KEY `id_lelang` (`lelang_id`), ADD KEY `id_berita` (`berita_id`), ADD KEY `lelang_id` (`lelang_id`), ADD KEY `berita_id` (`berita_id`), ADD KEY `pengadaan_id` (`pengadaan_id`);
+  ADD PRIMARY KEY (`id_berita`);
 
 --
 -- Indexes for table `contact_us`
 --
 ALTER TABLE `contact_us`
- ADD PRIMARY KEY (`id_contact`);
+  ADD PRIMARY KEY (`id_contact`);
 
 --
 -- Indexes for table `eproc`
 --
 ALTER TABLE `eproc`
- ADD PRIMARY KEY (`id_eproc`);
+  ADD PRIMARY KEY (`id_eproc`);
 
 --
 -- Indexes for table `faqs`
 --
 ALTER TABLE `faqs`
- ADD PRIMARY KEY (`id_faqs`);
+  ADD PRIMARY KEY (`id_faqs`);
 
 --
 -- Indexes for table `lelang`
 --
 ALTER TABLE `lelang`
- ADD PRIMARY KEY (`id_lelang`);
+  ADD PRIMARY KEY (`id_lelang`);
+
+--
+-- Indexes for table `pemenang`
+--
+ALTER TABLE `pemenang`
+  ADD PRIMARY KEY (`id_pemenang`),
+  ADD KEY `id_user` (`user_id`),
+  ADD KEY `id_pengaadaan` (`pengadaan_id`),
+  ADD KEY `id_user_2` (`user_id`),
+  ADD KEY `id_pengaadaan_2` (`pengadaan_id`);
 
 --
 -- Indexes for table `pengadaan`
 --
 ALTER TABLE `pengadaan`
- ADD PRIMARY KEY (`id_pengadaan`);
+  ADD PRIMARY KEY (`id_pengadaan`);
 
 --
 -- Indexes for table `supplier`
 --
 ALTER TABLE `supplier`
- ADD PRIMARY KEY (`id_supplier`);
+  ADD PRIMARY KEY (`id_supplier`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
- ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -332,58 +321,57 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=131;
---
--- AUTO_INCREMENT for table `catalog`
---
-ALTER TABLE `catalog`
-MODIFY `id_catalog` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=214;
 --
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id_contact` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `eproc`
 --
 ALTER TABLE `eproc`
-MODIFY `id_eproc` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id_eproc` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `faqs`
 --
 ALTER TABLE `faqs`
-MODIFY `id_faqs` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_faqs` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `lelang`
 --
 ALTER TABLE `lelang`
-MODIFY `id_lelang` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
+  MODIFY `id_lelang` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `pemenang`
+--
+ALTER TABLE `pemenang`
+  MODIFY `id_pemenang` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `pengadaan`
 --
 ALTER TABLE `pengadaan`
-MODIFY `id_pengadaan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id_pengadaan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `catalog`
+-- Constraints for table `pemenang`
 --
-ALTER TABLE `catalog`
-ADD CONSTRAINT `catalog_ibfk_1` FOREIGN KEY (`lelang_id`) REFERENCES `lelang` (`id_lelang`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `catalog_ibfk_2` FOREIGN KEY (`berita_id`) REFERENCES `berita` (`id_berita`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `catalog_ibfk_3` FOREIGN KEY (`pengadaan_id`) REFERENCES `pengadaan` (`id_pengadaan`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `pemenang`
+  ADD CONSTRAINT `pemenang_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pemenang_ibfk_2` FOREIGN KEY (`pengadaan_id`) REFERENCES `pengadaan` (`id_pengadaan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
