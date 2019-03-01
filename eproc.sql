@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `eproc` (
 --
 
 INSERT INTO `eproc` (`title`, `description`, `id_eproc`) VALUES
-('eProcurement', '<p>This web containt of</p>\r\n\r\n<p>prototype eProcurement&nbsp;PLN aplication</p>\r\n\r\n<p>copyright 2015</p>\r\n', 3);
+('eProcurement', '<p>This web containt of</p>\r\n\r\n<p>prototype eProcurement&nbsp;</p>\r\n\r\n<p>copyright 2015</p>\r\n', 3);
 
 -- --------------------------------------------------------
 
@@ -226,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `email`, `level`, `image`) VALUES
-(15, 'israj', 'MDI2', 'israj.haliri@gmail.com', 'admin', 'israjisraj.haliri@gmail.comme.jpg');
+(15, 'israj', 'MTIzNDU2Nzg=', 'israj.haliri@gmail.com', 'admin', 'israjisraj.haliri@gmail.comme.jpg');
 
 --
 -- Indexes for dumped tables

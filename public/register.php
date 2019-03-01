@@ -42,11 +42,11 @@ if(!empty($_POST["add"]))
 		<div class="container">
 			<div class="col-md-12">
 				<div class="col-md-2">
-					<img src="../assets/image/logo.png" align="left">
+                    <img src="../assets/image/image1.jpg" align="left">
 				</div>
 				<div class="col-md-10 language" align="right">
 					<div>
-						<i class=" glyphicon glyphicon-user"></i>(123) 456-7890
+						<i class=" glyphicon glyphicon-user"></i>123456789
 					</div>
 					<div>
 					<form action="result.php" method="post"  enctype="multipart/form-data">
@@ -160,7 +160,7 @@ if(!empty($_POST["add"]))
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
 							<div class="col-md-12 img-login" align="center">
-								<img src="../assets/image/logopln.png" class="img-circle">
+                                <img src="../assets/image/image1.jpg" class="img-circle">
 							</div>
 							<div class="col-md-12">
 								<div class="input-group">
