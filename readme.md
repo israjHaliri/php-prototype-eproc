@@ -1,6 +1,10 @@
 ## Needed stacks
     + xampp php 5.*
     + mysql
+    
+## Technology stacks
+    + php 5.*
+    + mysql
 
 ## Follow this checklist for running
 	+ copy project to apache web server under /htdocs
